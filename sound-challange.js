@@ -91,7 +91,7 @@ class SoundChallenge {
                 category: 'german',
                 difficulty: 'medium',
                 hints: ['Luxury SUV', 'German Engineering', 'M Performance'],
-                soundUrl: '#bmwx5mcompetition',
+                soundUrl: '#bmwx5mcompetition.m4a',
                 points: 15
             },
             {
@@ -102,7 +102,7 @@ class SoundChallenge {
                 category: 'american',
                 difficulty: 'easy',
                 hints: ['Muscle Car', 'American Icon', 'V8 Engine'],
-                soundUrl: 'fordmustanggt',
+                soundUrl: 'fordmustanggt.m4a',
                 points: 10
             }
         ];
@@ -825,3 +825,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1500);
 });
+
