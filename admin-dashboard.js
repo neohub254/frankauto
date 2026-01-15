@@ -929,4 +929,146 @@ constructor() {
     this.currentSoundId = null;
     
     this.init();
+
 }
+
+
+
+// ===== QUICK FIX FOR ADD CAR BUTTON =====
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Admin Dashboard Add Car Fix Loaded');
+    
+    // 1. Fix Add Car Button
+    const addCarBtn = document.getElementById('addCarBtn');
+    if (addCarBtn) {
+        console.log('✅ Found Add Car Button');
+        
+        addCarBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('🎯 Add Car Button Clicked!');
+            
+            const modal = document.getElementById('addCarModal');
+            if (modal) {
+                // Show modal
+                modal.style.display = 'flex';
+                modal.style.opacity = '1';
+                modal.style.visibility = 'visible';
+                
+                // Add animation
+                modal.style.animation = 'fadeIn 0.3s ease';
+                
+                // Prevent body scroll
+                document.body.style.overflow = 'hidden';
+                
+                console.log('✅ Modal opened successfully');
+            } else {
+                console.error('❌ Modal not found!');
+                alert('Error: Modal not found. Check console.');
+            }
+        });
+        
+        // Add visual indicator
+        addCarBtn.style.position = 'relative';
+    } else {
+        console.error('❌ Add Car Button not found! Check HTML id="addCarBtn"');
+    }
+    
+    // 2. Fix Close Modal Buttons
+    document.querySelectorAll('.close-modal').forEach(btn => {
+        btn.addEventListener('click', function() {
+            console.log('🔒 Closing modal');
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.style.display = 'none';
+                modal.style.opacity = '0';
+                modal.style.visibility = 'hidden';
+            });
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // 3. Close modal when clicking outside
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    });
+    
+    // 4. Escape key to close
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.style.display = 'none';
+            });
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // 5. Debug: Add test button
+    const debugBtn = document.createElement('button');
+    debugBtn.textContent = '🚀 TEST MODAL';
+    debugBtn.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #00FF9D;
+        color: #000;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        z-index: 9999;
+        cursor: pointer;
+    `;
+    debugBtn.addEventListener('click', function() {
+        const modal = document.getElementById('addCarModal');
+        if (modal) {
+            modal.style.display = 'flex';
+            console.log('Test: Modal opened via debug button');
+        }
+    });
+    document.body.appendChild(debugBtn);
+    
+    console.log('🎉 Add Car fix installed successfully');
+});
+
+// Add CSS for modal if missing
+const style = document.createElement('style');
+style.textContent = `
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .modal-overlay[style*="display: flex"] {
+        opacity: 1;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    .modal-content {
+        animation: fadeIn 0.3s ease;
+        max-width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+`;
+document.head.appendChild(style);  
