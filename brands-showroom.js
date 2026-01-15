@@ -1214,6 +1214,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ===== ANCHOR LINK SUPPORT =====
+// ===== ANCHOR LINK SUPPORT =====
 setupAnchorLinks() {
     // Handle hash changes
     window.addEventListener('hashchange', () => {
@@ -1280,7 +1281,80 @@ viewBrand(brandId) {
 }
 
 // ===== UPDATE INIT FUNCTION =====
-// In your init() function, add this line:
-// this.setupAnchorLinks();
-// Add this anywhere in your existing brands-showroom.js
-setTimeout(() => document.querySelector('.preloader')?.style.display = 'none', 2000);
+// Add this line inside your init() function (around line 50):
+async init() {
+    console.log('🚀 Initializing Brands Showroom...');
+    
+    // Load data
+    await this.loadData();
+    
+    // Setup UI
+    this.setupEventListeners();
+    this.setupNavigation();
+    this.setupAnchorLinks(); // <-- ADD THIS LINE
+    this.updateStats();
+    this.renderBrands();
+    
+    // Show UI
+    this.hidePreloader();
+    
+    console.log('✅ Brands Showroom initialized');
+    console.log(`📊 Loaded: ${this.cars.length} cars, ${this.brands.length} brands`);
+}
+
+// Add this at the VERY BOTTOM (after the class definition):
+document.addEventListener('DOMContentLoaded', () => {
+    // Force hide preloader after 3 seconds max
+    setTimeout(() => {
+        const preloader = document.querySelector('.preloader');
+        if (preloader) {
+            preloader.style.opacity = '0';
+            preloader.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => preloader.style.display = 'none', 500);
+        }
+    }, 3000);
+    
+    // Initialize showroom
+    try {
+        showroom = new BrandsShowroom();
+        window.showroom = showroom;
+    } catch (error) {
+        console.error('Failed to initialize showroom:', error);
+        // Force hide preloader on error
+        const preloader = document.querySelector('.preloader');
+        if (preloader) preloader.style.display = 'none';
+    }
+    
+    // Add debug button
+    const debugBtn = document.createElement('button');
+    debugBtn.innerHTML = '🐛 DEBUG';
+    debugBtn.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #FF003C;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: bold;
+        z-index: 9999;
+        cursor: pointer;
+    `;
+    debugBtn.onclick = () => {
+        console.log('Cars:', JSON.parse(localStorage.getItem('frankCars')) || []);
+        console.log('Brands:', JSON.parse(localStorage.getItem('frankBrands')) || []);
+        alert('Check console for data');
+    };
+    document.body.appendChild(debugBtn);
+});
+
+// Simple preloader timeout (add anywhere)
+setTimeout(() => {
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+        preloader.style.display = 'none';
+        console.log('Preloader hidden by timeout');
+    }
+}, 3000);
