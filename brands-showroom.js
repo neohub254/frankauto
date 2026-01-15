@@ -1210,3 +1210,75 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
 });
+
+
+
+  // ===== ANCHOR LINK SUPPORT =====
+setupAnchorLinks() {
+    // Handle hash changes
+    window.addEventListener('hashchange', () => {
+        const hash = window.location.hash.substring(1);
+        if (hash && this.brands.some(b => b.id === hash)) {
+            this.viewBrand(hash);
+        }
+    });
+    
+    // Check initial hash
+    const initialHash = window.location.hash.substring(1);
+    if (initialHash && this.brands.some(b => b.id === initialHash)) {
+        setTimeout(() => {
+            this.viewBrand(initialHash);
+        }, 1000);
+    }
+}
+
+// ===== ENHANCED VIEW BRAND FUNCTION =====
+viewBrand(brandId) {
+    const brand = this.brands.find(b => b.id === brandId);
+    if (!brand) return;
+    
+    this.currentBrand = brand;
+    
+    // Update URL with hash
+    window.history.pushState(null, '', `#${brandId}`);
+    
+    // Switch to brand detail view
+    this.currentView = 'brand-detail';
+    this.updateView();
+    
+    // Update brand header
+    document.getElementById('brandHeader').innerHTML = `
+        <div class="brand-detail-header">
+            <div class="brand-detail-logo">
+                <img src="${brand.logo}" alt="${brand.name}"
+                     onerror="this.src='https://via.placeholder.com/100/2a2a3a/ffffff?text=${brand.name.charAt(0)}'">
+            </div>
+            <div class="brand-detail-info">
+                <h2 class="brand-detail-name">${brand.name}</h2>
+                <p class="brand-detail-tagline">${brand.tagline}</p>
+            </div>
+        </div>
+        
+        <div class="brand-detail-stats">
+            <div class="brand-detail-stat">
+                <div class="stat-number">${brand.stats.total}</div>
+                <div class="stat-label">Total Vehicles</div>
+            </div>
+            <div class="brand-detail-stat">
+                <div class="stat-number">${brand.stats.available}</div>
+                <div class="stat-label">Available Now</div>
+            </div>
+            <div class="brand-detail-stat">
+                <div class="stat-number">KSh ${brand.stats.minPrice.toLocaleString()}</div>
+                <div class="stat-label">Starting From</div>
+            </div>
+        </div>
+    `;
+    
+    // Render brand cars
+    this.renderCarsGrid(brand.cars, 'brandCarsGrid');
+}
+
+// ===== UPDATE INIT FUNCTION =====
+// In your init() function, add this line:
+// this.setupAnchorLinks();
