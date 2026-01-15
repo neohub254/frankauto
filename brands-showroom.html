@@ -384,5 +384,169 @@
             'albumLabel': "Car %1 of %2"
         });
     </script>
+
+
+  
+ <script>
+// Emergency override for showroom loading
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing showroom...');
+    
+    // Force hide preloader after timeout
+    setTimeout(function() {
+        const preloader = document.querySelector('.preloader');
+        if (preloader) {
+            console.log('Hiding preloader...');
+            preloader.style.opacity = '0';
+            preloader.style.transition = 'opacity 0.5s ease';
+            setTimeout(function() {
+                preloader.style.display = 'none';
+                console.log('Preloader hidden');
+            }, 500);
+        }
+    }, 2000);
+    
+    // Try to initialize showroom
+    try {
+        // Create minimal showroom object if script fails
+        if (typeof showroom === 'undefined') {
+            console.warn('Showroom not defined, creating emergency functions');
+            
+            window.showroom = {
+                goHome: function() {
+                    window.location.href = 'index.html';
+                },
+                contactWhatsApp: function() {
+                    window.open('https://wa.me/254742436155', '_blank');
+                },
+                toggleFilters: function() {
+                    const panel = document.getElementById('filterPanel');
+                    if (panel) panel.classList.toggle('hidden');
+                },
+                toggleCompare: function() {
+                    const panel = document.getElementById('comparePanel');
+                    if (panel) panel.classList.toggle('hidden');
+                },
+                showMessage: function(text, type) {
+                    alert(text);
+                }
+            };
+            
+            // Load basic data
+            try {
+                const cars = JSON.parse(localStorage.getItem('frankCars')) || [];
+                const brands = JSON.parse(localStorage.getItem('frankBrands')) || [];
+                
+                console.log(`Emergency load: ${cars.length} cars, ${brands.length} brands`);
+                
+                // Update stats if elements exist
+                if (cars.length > 0) {
+                    document.getElementById('totalCars').textContent = cars.length;
+                    document.getElementById('availableCars').textContent = 
+                        cars.filter(c => c.status === 'available').length;
+                    
+                    // Show at least something
+                    const brandsGrid = document.getElementById('brandsGrid');
+                    if (brandsGrid && brands.length > 0) {
+                        brandsGrid.innerHTML = `
+                            <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                                <h3>Data Loaded Successfully</h3>
+                                <p>${cars.length} cars from ${brands.length} brands available</p>
+                                <button onclick="location.reload()" style="
+                                    background: #00FF9D;
+                                    color: #000;
+                                    border: none;
+                                    padding: 12px 30px;
+                                    border-radius: 8px;
+                                    font-weight: bold;
+                                    margin-top: 20px;
+                                    cursor: pointer;
+                                ">
+                                    Refresh Page
+                                </button>
+                            </div>
+                        `;
+                    }
+                }
+            } catch (e) {
+                console.error('Emergency data load error:', e);
+            }
+        }
+    } catch (error) {
+        console.error('Initialization error:', error);
+        
+        // Show error message
+        const preloader = document.querySelector('.preloader');
+        if (preloader) {
+            preloader.innerHTML = `
+                <div style="text-align: center; padding: 40px; color: #FF003C;">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                    <h3>Loading Error</h3>
+                    <p>Could not load showroom data</p>
+                    <button onclick="location.reload()" style="
+                        background: #FF003C;
+                        color: white;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        margin-top: 20px;
+                        cursor: pointer;
+                    ">
+                        Try Again
+                    </button>
+                    <br>
+                    <button onclick="window.location.href='index.html'" style="
+                        background: #00F3FF;
+                        color: #000;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        margin-top: 10px;
+                        cursor: pointer;
+                    ">
+                        Go to Home
+                    </button>
+                </div>
+            `;
+        }
+    }
+    
+    // Add debug button
+    const debugBtn = document.createElement('button');
+    debugBtn.innerHTML = '🐛 DEBUG';
+    debugBtn.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #FF003C;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: bold;
+        z-index: 9999;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(255,0,60,0.3);
+    `;
+    debugBtn.onclick = function() {
+        console.log('=== DEBUG INFO ===');
+        console.log('LocalStorage keys:', Object.keys(localStorage));
+        
+        const cars = JSON.parse(localStorage.getItem('frankCars')) || [];
+        const brands = JSON.parse(localStorage.getItem('frankBrands')) || [];
+        
+        console.log('Cars:', cars);
+        console.log('Brands:', brands);
+        console.log('Total cars:', cars.length);
+        console.log('Total brands:', brands.length);
+        
+        alert(`Debug Info:\nCars: ${cars.length}\nBrands: ${brands.length}\nCheck console for details.`);
+    };
+    document.body.appendChild(debugBtn);
+});
+</script>
+    
 </body>
 </html>
+
