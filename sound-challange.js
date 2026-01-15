@@ -91,7 +91,7 @@ class SoundChallenge {
                 category: 'german',
                 difficulty: 'medium',
                 hints: ['Luxury SUV', 'German Engineering', 'M Performance'],
-                soundUrl: '#bmwx5mcompetition.m4a',
+                soundUrl: 'bmwx5mcompetition.m4a',
                 points: 15
             },
             {
@@ -825,4 +825,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1500);
 });
+
 
