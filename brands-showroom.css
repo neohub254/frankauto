@@ -1303,3 +1303,14 @@ h4 {
         flex-direction: column;
     }
 }
+/* Add this to brands-showroom.css */
+.preloader {
+    animation: hidePreloader 0.5s ease 2s forwards;
+}
+
+@keyframes hidePreloader {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
