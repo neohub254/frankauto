@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Frank Auto Deals</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="admin-matrix.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    
+    <!-- Dropzone CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Session validation will happen via session-manager.js -->
+    
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1><i class="fas fa-tachometer-alt"></i> ADMIN DASHBOARD</h1>
+                <p>Frank Auto Deals Management System</p>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Administrator</span>
+                </div>
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+        
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <ul>
+                <li class="active"><a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#manage-cars"><i class="fas fa-car"></i> Manage Cars</a></li>
+                <li><a href="#manage-brands"><i class="fas fa-flag"></i> Manage Brands</a></li>
+                <li><a href="#elite-clients"><i class="fas fa-crown"></i> Elite Clients</a></li>
+                <li><a href="#analytics"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Dashboard Alerts -->
+            <div class="dashboard-alert">
+                <i class="fas fa-shield-alt"></i>
+                <p>Welcome to the Frank Auto Deals Admin Panel. Manage your inventory, brands, and elite clients from this dashboard.</p>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Total Cars</h3>
+                    <p class="stat-number" id="totalCars">0</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Available</h3>
+                    <p class="stat-number" id="availableCars">0</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Total Value</h3>
+                    <p class="stat-number" id="totalValue">KSh 0</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Elite Clients</h3>
+                    <p class="stat-number" id="eliteClients">0</p>
+                </div>
+            </div>
+            
+            <!-- Manage Cars Section -->
+            <section id="manage-cars" class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-car"></i> Manage Cars</h2>
+                    <button class="btn-add" id="addCarBtn">
+                        <i class="fas fa-plus"></i> Add New Car
+                    </button>
+                </div>
+                
+                <!-- Cars Table -->
+                <div class="table-container">
+                    <table id="carsTable" class="display">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th>Brand</th>
+                                <th>Model</th>
+                                <th>Year</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be loaded via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Manage Brands Section -->
+            <section id="manage-brands" class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-flag"></i> Manage Brands</h2>
+                    <p>Upload brand logos and manage brand information</p>
+                </div>
+                
+                <div class="brands-management">
+                    <!-- Brand Upload Section -->
+                    <div class="brand-upload-card">
+                        <h3><i class="fas fa-upload"></i> Upload Brand Logo</h3>
+                        <div class="upload-area" id="brandUploadZone">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & drop brand logo here or click to browse</p>
+                            <input type="file" id="brandLogoInput" accept="image/*" style="display: none;">
+                            <button class="btn-browse" onclick="document.getElementById('brandLogoInput').click()">
+                                Browse Files
+                            </button>
+                        </div>
+                        <div class="upload-form">
+                            <div class="form-group">
+                                <label for="brandName">Brand Name</label>
+                                <select id="brandName">
+                                    <option value="">Select Brand</option>
+                                    <option value="bmw">BMW</option>
+                                    <option value="mercedes">Mercedes-Benz</option>
+                                    <option value="toyota">Toyota</option>
+                                    <option value="porsche">Porsche</option>
+                                    <option value="range-rover">Range Rover</option>
+                                    <option value="ford">Ford</option>
+                                    <option value="nissan">Nissan</option>
+                                    <option value="lexus">Lexus</option>
+                                    <option value="audi">Audi</option>
+                                    <option value="mitsubishi">Mitsubishi</option>
+                                    <option value="subaru">Subaru</option>
+                                    <option value="jeep">Jeep</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="brandTagline">Brand Tagline</label>
+                                <input type="text" id="brandTagline" placeholder="e.g., The Ultimate Driving Machine">
+                            </div>
+                            <button class="btn-save" id="saveBrandBtn">
+                                <i class="fas fa-save"></i> Save Brand
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Current Brands -->
+                    <div class="brands-grid-admin">
+                        <h3>Current Brands</h3>
+                        <div class="brands-list" id="brandsList">
+                            <!-- Brands will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Elite Clients Section -->
+            <section id="elite-clients" class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-crown"></i> Elite Clients</h2>
+                    <p>Manage sold cars and elite client information</p>
+                </div>
+                
+                <div class="clients-table-container">
+                    <table id="clientsTable" class="display">
+                        <thead>
+                            <tr>
+                                <th>Client ID</th>
+                                <th>Client Name</th>
+                                <th>Car Purchased</th>
+                                <th>Purchase Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be loaded via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>© 2024 Frank Auto Deals. All rights reserved. | Secure Admin System v2.0</p>
+            <p class="session-timer">Session expires in: <span id="sessionTimer">29:59</span></p>
+        </footer>
+    </div>
+    
+    <!-- Add Car Modal -->
+    <div class="modal-overlay" id="addCarModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-car"></i> Add New Car</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="carForm">
+                    <!-- Image Upload -->
+                    <div class="form-section">
+                        <h4>Car Images</h4>
+                        <div class="image-upload-area" id="imageUploadZone">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Upload up to 3 images (Drag & drop or click)</p>
+                            <div class="uploaded-images" id="uploadedImages"></div>
+                            <input type="file" id="carImagesInput" accept="image/*" multiple style="display: none;">
+                            <button type="button" class="btn-upload" onclick="document.getElementById('carImagesInput').click()">
+                                <i class="fas fa-upload"></i> Select Images
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Car Details -->
+                    <div class="form-section">
+                        <h4>Car Details</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carBrandSelect">Brand *</label>
+                                <select id="carBrandSelect" required>
+                                    <option value="">Select Brand</option>
+                                    <!-- Options will be populated from brands -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="carModel">Model *</label>
+                                <input type="text" id="carModel" placeholder="e.g., X5, S-Class" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carYear">Year *</label>
+                                <input type="number" id="carYear" min="2000" max="2024" value="2023" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="carPrice">Price (KSh) *</label>
+                                <input type="number" id="carPrice" placeholder="e.g., 3500000" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carColor">Color</label>
+                                <input type="text" id="carColor" placeholder="e.g., Black, White">
+                            </div>
+                            <div class="form-group">
+                                <label for="carMileage">Mileage (km)</label>
+                                <input type="number" id="carMileage" placeholder="e.g., 15000">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="carDescription">Description</label>
+                            <textarea id="carDescription" rows="3" placeholder="Describe the car features..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Specifications -->
+                    <div class="form-section">
+                        <h4>Specifications</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carEngine">Engine</label>
+                                <input type="text" id="carEngine" placeholder="e.g., 3.0L V6">
+                            </div>
+                            <div class="form-group">
+                                <label for="carTransmission">Transmission</label>
+                                <select id="carTransmission">
+                                    <option value="">Select</option>
+                                    <option value="automatic">Automatic</option>
+                                    <option value="manual">Manual</option>
+                                    <option value="semi-automatic">Semi-Automatic</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carFuel">Fuel Type</label>
+                                <select id="carFuel">
+                                    <option value="">Select</option>
+                                    <option value="petrol">Petrol</option>
+                                    <option value="diesel">Diesel</option>
+                                    <option value="electric">Electric</option>
+                                    <option value="hybrid">Hybrid</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="carSeats">Seats</label>
+                                <input type="number" id="carSeats" min="1" max="9" placeholder="5">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Status -->
+                    <div class="form-section">
+                        <h4>Status</h4>
+                        <div class="form-group">
+                            <label for="carStatus">Car Status *</label>
+                            <select id="carStatus" required>
+                                <option value="available" selected>Available</option>
+                                <option value="reserved">Reserved</option>
+                                <option value="sold">Sold</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Client Details (only shown when status is sold) -->
+                        <div class="form-group" id="clientDetailsSection" style="display: none;">
+                            <label for="clientName">Client Name</label>
+                            <input type="text" id="clientName" placeholder="Enter client name">
+                            
+                            <label for="clientEmail">Client Email</label>
+                            <input type="email" id="clientEmail" placeholder="client@email.com">
+                            
+                            <label for="clientPhone">Client Phone</label>
+                            <input type="tel" id="clientPhone" placeholder="+254 XXX XXX XXX">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save"></i> Save Car
+                        </button>
+                        <button type="button" class="btn-cancel close-modal">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Edit Car Modal -->
+    <div class="modal-overlay" id="editCarModal">
+        <div class="modal-content">
+            <!-- Similar to Add Car Modal but for editing -->
+            <!-- Content will be populated via JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content success-modal">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Success!</h3>
+            <p id="successMessage">Operation completed successfully.</p>
+            <button class="btn-ok close-modal">OK</button>
+        </div>
+    </div>
+    
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-content confirm-modal">
+            <div class="modal-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3>Confirm Action</h3>
+            <p id="confirmMessage">Are you sure you want to proceed?</p>
+            <div class="confirm-actions">
+                <button class="btn-confirm" id="confirmYes">Yes</button>
+                <button class="btn-cancel close-modal">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sound Management Section -->
+<section id="sound-management" class="dashboard-section">
+    <div class="section-header">
+        <h2><i class="fas fa-volume-up"></i> Sound Challenge Management</h2>
+        <button class="btn-add" id="addSoundBtn">
+            <i class="fas fa-plus"></i> Add New Sound
+        </button>
+    </div>
+    
+    <div class="sounds-management">
+        <!-- Add Sound Form -->
+        <div class="add-sound-card">
+            <h3><i class="fas fa-upload"></i> Add Engine Sound</h3>
+            
+            <form id="addSoundForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="soundName">Car Name *</label>
+                        <input type="text" id="soundName" placeholder="e.g., Toyota Land Cruiser V8" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="soundBrand">Brand *</label>
+                        <input type="text" id="soundBrand" placeholder="e.g., Toyota" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="soundEngine">Engine Type</label>
+                        <input type="text" id="soundEngine" placeholder="e.g., 5.7L V8">
+                    </div>
+                    <div class="form-group">
+                        <label for="soundCategory">Category *</label>
+                        <select id="soundCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="german">German</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="american">American</option>
+                            <option value="luxury">Luxury</option>
+                            <option value="sports">Sports</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="soundDifficulty">Difficulty *</label>
+                        <select id="soundDifficulty" required>
+                            <option value="">Select Difficulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="soundPoints">Points</label>
+                        <input type="number" id="soundPoints" min="5" max="50" value="10">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="soundHints">Hints (comma separated)</label>
+                    <input type="text" id="soundHints" placeholder="e.g., SUV, V8 Engine, Reliable">
+                </div>
+                
+                <div class="form-group">
+                    <label for="soundFile">Sound File *</label>
+                    <div class="file-upload-area" id="soundUploadZone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Upload MP3 file (Max: 5MB)</p>
+                        <input type="file" id="soundFile" accept="audio/mp3,audio/*" style="display: none;">
+                        <button type="button" class="btn-browse" onclick="document.getElementById('soundFile').click()">
+                            Browse Files
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-save">
+                        <i class="fas fa-save"></i> Save Sound
+                    </button>
+                    <button type="button" class="btn-cancel" onclick="resetSoundForm()">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Current Sounds -->
+        <div class="sounds-list">
+            <h3>Current Sounds (<span id="soundsCount">0</span>)</h3>
+            <div class="sounds-grid" id="soundsGrid">
+                <!-- Sounds will be loaded here -->
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    
+    <script src="session-manager.js"></script>
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>

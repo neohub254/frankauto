@@ -1,0 +1,357 @@
+/* ============================================
+   BRAND UNIVERSE - UNIQUE THEMES FOR EACH BRAND
+   ============================================ */
+
+/* TOYOTA - Safari Luxury Theme */
+.brand-page.toyota {
+    --brand-primary: #EB001B;
+    --brand-secondary: #000000;
+    --brand-accent: #FF3300;
+    --brand-gradient: linear-gradient(135deg, #EB001B, #000000);
+}
+
+.toyota .cosmic-background {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('../assets/images/backgrounds/safari-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.toyota .hero-title .highlight {
+    background: linear-gradient(135deg, #EB001B, #FF3300);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.toyota .btn-primary {
+    background: linear-gradient(135deg, #EB001B, #FF3300);
+}
+
+.toyota .brand-feature {
+    background: linear-gradient(135deg, 
+        rgba(235, 0, 27, 0.1), 
+        rgba(0, 0, 0, 0.1));
+    border: 1px solid rgba(235, 0, 27, 0.3);
+}
+
+/* BMW - Bavarian Excellence Theme */
+.brand-page.bmw {
+    --brand-primary: #0066B1;
+    --brand-secondary: #FFFFFF;
+    --brand-accent: #003870;
+    --brand-gradient: linear-gradient(135deg, #0066B1, #FFFFFF);
+}
+
+.bmw .cosmic-background {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('../assets/images/backgrounds/autobahn-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.bmw .hero-title .highlight {
+    background: linear-gradient(135deg, #0066B1, #00A3FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bmw .btn-primary {
+    background: linear-gradient(135deg, #0066B1, #00A3FF);
+}
+
+/* MERCEDES - Executive Luxury Theme */
+.brand-page.mercedes {
+    --brand-primary: #000000;
+    --brand-secondary: #FFFFFF;
+    --brand-accent: #FFD700;
+    --brand-gradient: linear-gradient(135deg, #000000, #FFFFFF);
+}
+
+.mercedes .cosmic-background {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('../assets/images/backgrounds/luxury-hotel-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.mercedes .hero-title .highlight {
+    background: linear-gradient(135deg, #000000, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mercedes .btn-primary {
+    background: linear-gradient(135deg, #000000, #333333);
+}
+
+/* PORSCHE - Racing Heritage Theme */
+.brand-page.porsche {
+    --brand-primary: #CC0000;
+    --brand-secondary: #000000;
+    --brand-accent: #FFCC00;
+    --brand-gradient: linear-gradient(135deg, #CC0000, #000000);
+}
+
+.porsche .cosmic-background {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('../assets/images/backgrounds/race-track-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.porsche .hero-title .highlight {
+    background: linear-gradient(135deg, #CC0000, #FF3300);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.porsche .btn-primary {
+    background: linear-gradient(135deg, #CC0000, #FF3300);
+}
+
+/* RANGE ROVER - African Majesty Theme */
+.brand-page.range-rover {
+    --brand-primary: #005A2B;
+    --brand-secondary: #000000;
+    --brand-accent: #D4AF37;
+    --brand-gradient: linear-gradient(135deg, #005A2B, #000000);
+}
+
+.range-rover .cosmic-background {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('../assets/images/backgrounds/safari-luxury-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.range-rover .hero-title .highlight {
+    background: linear-gradient(135deg, #005A2B, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.range-rover .btn-primary {
+    background: linear-gradient(135deg, #005A2B, #008040);
+}
+
+/* ===== BRAND PAGE TEMPLATE ===== */
+.brand-hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 60px;
+    position: relative;
+}
+
+.brand-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--brand-gradient);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.brand-hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.brand-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.brand-tagline {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* Brand Features Grid */
+.brand-features {
+    padding: 80px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    border-color: var(--brand-primary);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--brand-primary);
+}
+
+.feature-card h3 {
+    font-family: var(--font-quantum);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+/* Available Cars */
+.brand-cars {
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.cars-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Brand Gallery */
+.brand-gallery {
+    padding: 80px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Brand Stats */
+.brand-stats {
+    padding: 80px 0;
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 0.8));
+}
+
+.stats-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.brand-stat {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand-stat-number {
+    font-family: var(--font-quantum);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: 10px;
+}
+
+.brand-stat-label {
+    font-family: var(--font-space);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Responsive Brand Pages */
+@media (max-width: 768px) {
+    .brand-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .brand-tagline {
+        font-size: 1.1rem;
+    }
+    
+    .features-grid,
+    .cars-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .brand-hero-content {
+        padding: 0 20px;
+    }
+}

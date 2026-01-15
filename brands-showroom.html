@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Brands Showroom | Frank Auto Deals Kenya</title>
+    
+    <!-- Unified CSS -->
+    <link rel="stylesheet" href="brands-showroom.css">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
+</head>
+<body class="brands-showroom">
+    <!-- Preloader -->
+    <div class="brands-preloader">
+        <div class="preloader-content">
+            <div class="brands-spinner">
+                <div class="spinner-logo">🚗</div>
+                <div class="spinner-text">Loading Brands Showroom...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="brands-nav">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <div class="logo-icon">🏎️</div>
+                <div class="logo-text">
+                    <span>FRANK AUTO</span>
+                    <span>BRANDS SHOWROOM</span>
+                </div>
+            </div>
+
+            <div class="nav-links">
+                <a href="#brands" class="nav-link active">ALL BRANDS</a>
+                <a href="#premium" class="nav-link">PREMIUM</a>
+                <a href="#luxury" class="nav-link">LUXURY</a>
+                <a href="#suv" class="nav-link">SUVS</a>
+                <a href="#budget" class="nav-link">BUDGET</a>
+                <div class="nav-search">
+                    <input type="text" placeholder="Search brand or model..." id="brandSearch">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <a href="index.html" class="action-btn">
+                    <i class="fas fa-home"></i>
+                    <span>HOME</span>
+                </a>
+                <a href="https://wa.me/254742436155" class="action-btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WHATSAPP</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="brands-hero">
+        <div class="hero-container">
+            <h1 class="hero-title">EXPLORE OUR BRAND UNIVERSE</h1>
+            <p class="hero-subtitle">Discover 500+ cars from 42+ brands. Find your perfect vehicle.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">42+</div>
+                    <div class="stat-label">BRANDS</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">CARS</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1200+</div>
+                    <div class="stat-label">CLIENTS</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">SATISFACTION</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Categories Filter -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">ALL BRANDS</button>
+                <button class="category-tab" data-category="premium">PREMIUM BRANDS</button>
+                <button class="category-tab" data-category="luxury">LUXURY BRANDS</button>
+                <button class="category-tab" data-category="suv">SUV SPECIALISTS</button>
+                <button class="category-tab" data-category="japanese">JAPANESE</button>
+                <button class="category-tab" data-category="german">GERMAN</button>
+                <button class="category-tab" data-category="american">AMERICAN</button>
+                <button class="category-tab" data-category="budget">BUDGET FRIENDLY</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Brands Section -->
+    <section class="main-brands-section" id="brands">
+        <div class="container">
+            <h2 class="section-title">MAIN BRANDS</h2>
+            <p class="section-subtitle">Our primary brand partners with extensive inventory</p>
+
+            <div class="brands-grid">
+                <!-- BMW -->
+                <div class="brand-card bmw" data-category="premium,german,luxury">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="bmwlogo.jpg" alt="BMW">
+                        </div>
+                        <div class="brand-badge premium">PREMIUM</div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">BMW</h3>
+                        <p class="brand-tagline">The Ultimate Driving Machine</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>28 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 3.5M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Performance</span>
+                            <span class="feature">Luxury</span>
+                            <span class="feature">Technology</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('bmw')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('bmw')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Toyota -->
+                <div class="brand-card toyota" data-category="japanese,budget,suv">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="toyotalogo.jpg" alt="Toyota">
+                        </div>
+                        <div class="brand-badge popular">MOST POPULAR</div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Toyota</h3>
+                        <p class="brand-tagline">Reliability Redefined</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>45 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 1.2M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Reliable</span>
+                            <span class="feature">Fuel Efficient</span>
+                            <span class="feature">Durable</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('toyota')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('toyota')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Mercedes-Benz -->
+                <div class="brand-card mercedes" data-category="luxury,german,premium">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="mercedezlogo.jpg" alt="Mercedes">
+                        </div>
+                        <div class="brand-badge luxury">LUXURY</div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Mercedes-Benz</h3>
+                        <p class="brand-tagline">The Best or Nothing</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>32 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 4.2M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Luxury</span>
+                            <span class="feature">Comfort</span>
+                            <span class="feature">Prestige</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('mercedes')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('mercedes')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Porsche -->
+                <div class="brand-card porsche" data-category="luxury,german,sports">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="porschelogo.jpg" alt="Porsche">
+                        </div>
+                        <div class="brand-badge luxury">EXCLUSIVE</div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Porsche</h3>
+                        <p class="brand-tagline">There is No Substitute</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>15 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 8.5M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Performance</span>
+                            <span class="feature">Sport</span>
+                            <span class="feature">Exclusive</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('porsche')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('porsche')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Range Rover -->
+                <div class="brand-card range-rover" data-category="luxury,suv,british">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="range-roverlogo.jpg" alt="Range Rover">
+                        </div>
+                        <div class="brand-badge luxury">LUXURY SUV</div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Range Rover</h3>
+                        <p class="brand-tagline">Above and Beyond</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>18 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 12M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Luxury</span>
+                            <span class="feature">Off-Road</span>
+                            <span class="feature">Premium</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('range-rover')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('range-rover')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Ford -->
+                <div class="brand-card ford" data-category="american,budget,suv">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="fordlogo.jpg" alt="Ford">
+                        </div>
+                        <div class="brand-badge value">BEST VALUE</div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Ford</h3>
+                        <p class="brand-tagline">Built Ford Tough</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>25 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 2.8M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Durable</span>
+                            <span class="feature">Practical</span>
+                            <span class="feature">Value</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('ford')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('ford')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Nissan -->
+                <div class="brand-card nissan" data-category="japanese,budget,suv">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="nissanlogo.jpg" alt="Nissan">
+                        </div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Nissan</h3>
+                        <p class="brand-tagline">Innovation that excites</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>22 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 2.5M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Innovative</span>
+                            <span class="feature">Reliable</span>
+                            <span class="feature">Efficient</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('nissan')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('nissan')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Lexus -->
+                <div class="brand-card lexus" data-category="luxury,japanese">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="lexuslogo.jpg" alt="Lexus">
+                        </div>
+                        <div class="brand-badge luxury">LUXURY</div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Lexus</h3>
+                        <p class="brand-tagline">The Pursuit of Perfection</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>16 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 6.5M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Luxury</span>
+                            <span class="feature">Comfort</span>
+                            <span class="feature">Reliable</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('lexus')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('lexus')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Audi -->
+                <div class="brand-card audi" data-category="premium,german,luxury">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="audilogo.jpg" alt="Audi">
+                        </div>
+                        <div class="brand-badge premium">PREMIUM</div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Audi</h3>
+                        <p class="brand-tagline">Vorsprung durch Technik</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>24 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 5.2M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Technology</span>
+                            <span class="feature">Design</span>
+                            <span class="feature">Performance</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('audi')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('audi')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Mitsubishi -->
+                <div class="brand-card mitsubishi" data-category="japanese,suv,budget">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="mitsubishilogo.jpg" alt="Mitsubishi">
+                        </div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Mitsubishi</h3>
+                        <p class="brand-tagline">Drive your Ambition</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>18 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 2.3M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Durable</span>
+                            <span class="feature">4x4</span>
+                            <span class="feature">Practical</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('mitsubishi')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('mitsubishi')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Subaru -->
+                <div class="brand-card subaru" data-category="japanese,suv">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="subarulogo.jpg" alt="Subaru">
+                        </div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Subaru</h3>
+                        <p class="brand-tagline">Confidence in Motion</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>12 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 3.8M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">AWD</span>
+                            <span class="feature">Safety</span>
+                            <span class="feature">Reliable</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('subaru')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('subaru')">COMPARE</button>
+                    </div>
+                </div>
+
+                <!-- Jeep -->
+                <div class="brand-card jeep" data-category="american,suv">
+                    <div class="brand-header">
+                        <div class="brand-logo">
+                            <img src="jeeplogo.jpg" alt="Jeep">
+                        </div>
+                    </div>
+                    <div class="brand-content">
+                        <h3 class="brand-name">Jeep</h3>
+                        <p class="brand-tagline">Go Anywhere, Do Anything</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>14 Models</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-tag"></i>
+                                <span>From KSh 4.5M</span>
+                            </div>
+                        </div>
+                        <div class="brand-features">
+                            <span class="feature">Off-Road</span>
+                            <span class="feature">Adventure</span>
+                            <span class="feature">Rugged</span>
+                        </div>
+                    </div>
+                    <div class="brand-actions">
+                        <button class="btn-view" onclick="viewBrand('jeep')">VIEW MODELS</button>
+                        <button class="btn-compare" onclick="addToCompare('jeep')">COMPARE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Brands Section -->
+    <section class="other-brands-section">
+        <div class="container">
+            <h2 class="section-title">OTHER BRANDS</h2>
+            <p class="section-subtitle">Additional premium brands available</p>
+
+            <div class="other-brands-grid">
+                <div class="other-brand" onclick="viewBrand('volvo')">
+                    <div class="other-brand-logo">
+                        <img src="volvologo.jpg" alt="Volvo">
+                    </div>
+                    <div class="other-brand-name">Volvo</div>
+                    <div class="other-brand-count">12 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('mazda')">
+                    <div class="other-brand-logo">
+                        <img src="mazdalogo.jpg" alt="Mazda">
+                    </div>
+                    <div class="other-brand-name">Mazda</div>
+                    <div class="other-brand-count">15 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('suzuki')">
+                    <div class="other-brand-logo">
+                        <img src="suzukilogo.jpg" alt="Suzuki">
+                    </div>
+                    <div class="other-brand-name">Suzuki</div>
+                    <div class="other-brand-count">18 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('hyundai')">
+                    <div class="other-brand-logo">
+                        <img src="assets/images/logos/hyundai.png" alt="Hyundai">
+                    </div>
+                    <div class="other-brand-name">Hyundai</div>
+                    <div class="other-brand-count">20 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('kia')">
+                    <div class="other-brand-logo">
+                        <img src="assets/images/logos/kia.png" alt="Kia">
+                    </div>
+                    <div class="other-brand-name">Kia</div>
+                    <div class="other-brand-count">16 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('honda')">
+                    <div class="other-brand-logo">
+                        <img src="assets/images/logos/honda.png" alt="Honda">
+                    </div>
+                    <div class="other-brand-name">Honda</div>
+                    <div class="other-brand-count">14 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('isuzu')">
+                    <div class="other-brand-logo">
+                        <img src="assets/images/logos/isuzu.png" alt="Isuzu">
+                    </div>
+                    <div class="other-brand-name">Isuzu</div>
+                    <div class="other-brand-count">10 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('land-rover')">
+                    <div class="other-brand-logo">
+                        <img src="assets/images/logos/land-rover.png" alt="Land Rover">
+                    </div>
+                    <div class="other-brand-name">Land Rover</div>
+                    <div class="other-brand-count">8 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('mini')">
+                    <div class="other-brand-logo">
+                        <img src="assets/images/logos/mini.png" alt="MINI">
+                    </div>
+                    <div class="other-brand-name">MINI</div>
+                    <div class="other-brand-count">6 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('tesla')">
+                    <div class="other-brand-logo">
+                        <img src="assets/images/logos/tesla.png" alt="Tesla">
+                    </div>
+                    <div class="other-brand-name">Tesla</div>
+                    <div class="other-brand-count">4 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('volkswagen')">
+                    <div class="other-brand-logo">
+                        <img src="assets/images/logos/volkswagen.png" alt="Volkswagen">
+                    </div>
+                    <div class="other-brand-name">Volkswagen</div>
+                    <div class="other-brand-count">22 Models</div>
+                </div>
+
+                <div class="other-brand" onclick="viewBrand('chevrolet')">
+                    <div class="other-brand-logo">
+                        <img src="assets/images/logos/chevrolet.png" alt="Chevrolet">
+                    </div>
+                    <div class="other-brand-name">Chevrolet</div>
+                    <div class="other-brand-count">12 Models</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compare Section -->
+    <section class="compare-section" id="compare">
+        <div class="container">
+            <h2 class="section-title">COMPARE BRANDS</h2>
+            <div class="compare-container" id="compareContainer">
+                <div class="compare-empty">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>No Brands Selected</h3>
+                    <p>Click "COMPARE" on brand cards to add them here</p>
+                </div>
+            </div>
+            <div class="compare-actions">
+                <button class="btn-clear" onclick="clearCompare()">CLEAR ALL</button>
+                <button class="btn-compare" onclick="showComparison()">VIEW COMPARISON</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Filter Modal -->
+    <div class="brand-modal" id="brandModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Brand Details</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="brands-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">🏎️</div>
+                    <div class="logo-text">
+                        <span>FRANK AUTO DEALS</span>
+                        <span>BRANDS SHOWROOM</span>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <a href="tel:+254742436155"><i class="fas fa-phone"></i> +254 742 436 155</a>
+                    <a href="https://wa.me/254742436155"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="mailto:info@frankautodeals.co.ke"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="brands-showroom.html">All Cars</a>
+                    <a href="sound-challange.html">sound Challange</a>
+                    <a href="admin-login.html">Admin</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Frank Auto Deals. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+// Load cars into brands-showroom
+document.addEventListener('DOMContentLoaded', function() {
+    const cars = JSON.parse(localStorage.getItem('frankCars')) || [];
+    const brands = JSON.parse(localStorage.getItem('frankBrands')) || [];
+    
+    // You can now use these arrays to populate your brands-showroom
+    // For example, filter cars by brand and display them
+    
+    console.log('Loaded cars:', cars.length);
+    console.log('Loaded brands:', brands.length);
+});
+</script>
+
+
+    <script>
+// Force hide preloader
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        const preloader = document.querySelector('.brands-preloader');
+        if (preloader) {
+            preloader.style.display = 'none';
+        }
+    }, 1000);
+});
+</script>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="brands-showroom.js"></script>
+</body>
+</html>

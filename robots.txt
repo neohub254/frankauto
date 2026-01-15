@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /brands-showroom.html
+Allow: /elite-clients.html
+Allow: /sound-challenge.html
+Allow: /admin-login.html
+
+Disallow: /admin/
+Disallow: /admin-dashboard.html
+Disallow: /private/
+Disallow: /secret/
+
+Sitemap: https://neohub254.github.io/frankauto/sitemap.xml

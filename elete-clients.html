@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Clients | Frank Auto Deals</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/cosmic-luxury.css">
+    <link rel="stylesheet" href="css/elite-clients.css">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+    /* Critical styles */
+    body {
+        background: #0A0A14;
+        color: white;
+        font-family: 'Exo 2', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .elite-preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0A0A14;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+    
+    .vip-spinner {
+        text-align: center;
+    }
+    
+    .vip-icon {
+        font-size: 60px;
+        color: #FFD700;
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+<body class="elite-clients">
+    <!-- Preloader -->
+    <div class="elite-preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="vip-spinner">
+                <div class="vip-icon">👑</div>
+                <div class="loading-text">Loading Elite Portal...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIP Navigation -->
+    <nav class="vip-nav">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <div class="vip-badge">VIP</div>
+                <div class="logo-text">
+                    <span>ELITE</span>
+                    <span>CLIENTS</span>
+                </div>
+            </div>
+
+            <div class="vip-menu">
+                <a href="#portal" class="vip-link active">
+                    <i class="fas fa-home"></i>
+                    <span>PORTAL</span>
+                </a>
+                <a href="#benefits" class="vip-link">
+                    <i class="fas fa-crown"></i>
+                    <span>BENEFITS</span>
+                </a>
+                <a href="#cars" class="vip-link">
+                    <i class="fas fa-car"></i>
+                    <span>MY CARS</span>
+                </a>
+                <a href="#services" class="vip-link">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span>SERVICES</span>
+                </a>
+                <a href="#events" class="vip-link">
+                    <i class="fas fa-calendar-star"></i>
+                    <span>EVENTS</span>
+                </a>
+            </div>
+
+            <div class="vip-profile">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name">VIP Client</div>
+                    <div class="profile-tier">DIAMOND TIER</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- VIP Welcome -->
+    <section class="vip-welcome" id="portal">
+        <div class="container">
+            <div class="welcome-content">
+                <div class="welcome-badge">
+                    <i class="fas fa-crown"></i>
+                    <span>EXCLUSIVE ACCESS</span>
+                </div>
+                
+                <h1 class="welcome-title">
+                    <span class="title-line">WELCOME TO THE</span>
+                    <span class="title-line highlight">ELITE CLUB</span>
+                </h1>
+                
+                <p class="welcome-message">
+                    As a valued Frank Auto Deals client, you have access to exclusive benefits, 
+                    premium services, and priority treatment. Your automotive journey deserves 
+                    the extraordinary.
+                </p>
+                
+                <div class="welcome-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="clientYears">0</div>
+                            <div class="stat-label">YEARS WITH US</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="carsOwned">0</div>
+                            <div class="stat-label">CARS PURCHASED</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="servicesUsed">0</div>
+                            <div class="stat-label">SERVICES USED</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="welcome-visual">
+                <div class="vip-card">
+                    <div class="card-shine"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-logo">FAD</div>
+                            <div class="card-type">ELITE MEMBERSHIP</div>
+                        </div>
+                        <div class="card-details">
+                            <div class="card-number">•••• •••• •••• 8888</div>
+                            <div class="card-info">
+                                <div class="card-name">VIP CLIENT</div>
+                                <div class="card-expiry">VALID THRU 12/29</div>
+                            </div>
+                        </div>
+                        <div class="card-tier">
+                            <i class="fas fa-gem"></i>
+                            <span>DIAMOND TIER</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Benefits -->
+    <section class="vip-benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-bg">EXCLUSIVE</span>
+                <span class="title-main">VIP BENEFITS</span>
+            </h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="benefit-title">24/7 Concierge</h3>
+                    <p class="benefit-desc">
+                        Dedicated personal assistant for all your automotive needs, 
+                        available round the clock.
+                    </p>
+                    <div class="benefit-tag">PRIORITY SERVICE</div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="benefit-title">Extended Warranty</h3>
+                    <p class="benefit-desc">
+                        5-year comprehensive warranty on all vehicles with premium 
+                        coverage options.
+                    </p>
+                    <div class="benefit-tag">PEACE OF MIND</div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-truck-pickup"></i>
+                    </div>
+                    <h3 class="benefit-title">Free Delivery</h3>
+                    <p class="benefit-desc">
+                        Nationwide vehicle delivery and pickup for service appointments 
+                        at no extra cost.
+                    </p>
+                    <div class="benefit-tag">CONVENIENCE</div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3 class="benefit-title">Special Financing</h3>
+                    <p class="benefit-desc">
+                        Exclusive low-interest rates and flexible payment plans 
+                        tailored for VIP clients.
+                    </p>
+                    <div class="benefit-tag">FINANCIAL PRIVILEGE</div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-calendar-star"></i>
+                    </div>
+                    <h3 class="benefit-title">VIP Events</h3>
+                    <p class="benefit-desc">
+                        Invitations to exclusive launches, test drive events, 
+                        and luxury automotive experiences.
+                    </p>
+                    <div class="benefit-tag">EXCLUSIVE ACCESS</div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="benefit-title">Loyalty Rewards</h3>
+                    <p class="benefit-desc">
+                        Earn points with every purchase redeemable for upgrades, 
+                        accessories, and premium services.
+                    </p>
+                    <div class="benefit-tag">REWARDS PROGRAM</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Cars Section -->
+    <section class="my-cars-section" id="cars">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">MY GARAGE</h2>
+                <p class="section-subtitle">Your current and past vehicles with Frank Auto Deals</p>
+                <button class="btn-add-car" onclick="showAddCarModal()">
+                    <i class="fas fa-plus"></i>
+                    ADD NEW CAR
+                </button>
+            </div>
+            
+            <div class="cars-grid" id="carsGrid">
+                <!-- Cars will be loaded dynamically -->
+                <div class="no-cars">
+                    <i class="fas fa-car"></i>
+                    <h3>No cars in your garage yet</h3>
+                    <p>Add your first vehicle to get started</p>
+                    <button class="btn-primary" onclick="showAddCarModal()">
+                        ADD YOUR FIRST CAR
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Services -->
+    <section class="vip-services" id="services">
+        <div class="container">
+            <h2 class="section-title">PREMIUM SERVICES</h2>
+            
+            <div class="services-tabs">
+                <button class="service-tab active" data-service="maintenance">MAINTENANCE</button>
+                <button class="service-tab" data-service="detailing">DETAILING</button>
+                <button class="service-tab" data-service="upgrades">UPGRADES</button>
+                <button class="service-tab" data-service="insurance">INSURANCE</button>
+                <button class="service-tab" data-service="finance">FINANCE</button>
+            </div>
+            
+            <div class="services-content">
+                <div class="service-info active" id="maintenance">
+                    <h3>Premium Maintenance</h3>
+                    <p>Comprehensive service packages with genuine parts and expert technicians.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Free pickup & delivery</li>
+                        <li><i class="fas fa-check"></i> Loan car during service</li>
+                        <li><i class="fas fa-check"></i> 24-month warranty on repairs</li>
+                        <li><i class="fas fa-check"></i> Priority scheduling</li>
+                    </ul>
+                    <button class="btn-service" onclick="bookService('maintenance')">
+                        <i class="fas fa-calendar-check"></i>
+                        BOOK SERVICE
+                    </button>
+                </div>
+                
+                <div class="service-info" id="detailing">
+                    <h3>Executive Detailing</h3>
+                    <p>Professional cleaning and protection services for your luxury vehicle.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Ceramic coating application</li>
+                        <li><i class="fas fa-check"></i> Interior deep cleaning</li>
+                        <li><i class="fas fa-check"></i> Paint correction</li>
+                        <li><i class="fas fa-check"></i> Leather conditioning</li>
+                    </ul>
+                    <button class="btn-service" onclick="bookService('detailing')">
+                        <i class="fas fa-calendar-check"></i>
+                        BOOK DETAILING
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Events -->
+    <section class="vip-events" id="events">
+        <div class="container">
+            <h2 class="section-title">EXCLUSIVE EVENTS</h2>
+            
+            <div class="events-slider">
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="date-day">15</div>
+                        <div class="date-month">DEC</div>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Luxury Car Launch</h3>
+                        <p class="event-desc">
+                            Exclusive preview of the latest luxury models before public release.
+                        </p>
+                        <div class="event-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Nairobi Showroom</span>
+                            <span><i class="fas fa-clock"></i> 6:00 PM</span>
+                        </div>
+                        <button class="btn-rsvp" onclick="rsvpEvent('luxury-launch')">
+                            <i class="fas fa-check-circle"></i>
+                            RSVP
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="date-day">22</div>
+                        <div class="date-month">DEC</div>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">VIP Test Drive Day</h3>
+                        <p class="event-desc">
+                            Private test drive event featuring our latest sports and luxury vehicles.
+                        </p>
+                        <div class="event-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Private Track</span>
+                            <span><i class="fas fa-clock"></i> 9:00 AM - 5:00 PM</span>
+                        </div>
+                        <button class="btn-rsvp" onclick="rsvpEvent('test-drive-day')">
+                            <i class="fas fa-check-circle"></i>
+                            RSVP
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="date-day">05</div>
+                        <div class="date-month">JAN</div>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">New Year Celebration</h3>
+                        <p class="event-desc">
+                            Annual VIP client appreciation event with fine dining and entertainment.
+                        </p>
+                        <div class="event-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Luxury Resort</span>
+                            <span><i class="fas fa-clock"></i> 7:00 PM</span>
+                        </div>
+                        <button class="btn-rsvp" onclick="rsvpEvent('new-year-celebration')">
+                            <i class="fas fa-check-circle"></i>
+                            RSVP
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Support -->
+    <section class="vip-support">
+        <div class="container">
+            <div class="support-card">
+                <div class="support-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="support-content">
+                    <h3>Need Immediate Assistance?</h3>
+                    <p>Your personal concierge is available 24/7 for any questions or requests.</p>
+                    <div class="support-contacts">
+                        <a href="tel:+254742436155" class="contact-btn">
+                            <i class="fas fa-phone"></i>
+                            CALL CONCIERGE
+                        </a>
+                        <a href="https://wa.me/254742436155" class="contact-btn whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            WHATSAPP
+                        </a>
+                        <button class="contact-btn" onclick="showContactModal()">
+                            <i class="fas fa-envelope"></i>
+                            EMAIL REQUEST
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="vip-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Elite Clients Portal</h4>
+                    <p>Exclusive benefits and services for our valued VIP clients.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Access</h4>
+                    <a href="#portal"><i class="fas fa-home"></i> Portal</a>
+                    <a href="#benefits"><i class="fas fa-crown"></i> Benefits</a>
+                    <a href="#cars"><i class="fas fa-car"></i> My Cars</a>
+                    <a href="#events"><i class="fas fa-calendar"></i> Events</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Emergency Contact</h4>
+                    <a href="tel:+254742436155"><i class="fas fa-phone"></i> +254 742 436 155</a>
+                    <a href="mailto:vip@frankautodeals.co.ke"><i class="fas fa-envelope"></i> VIP Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Frank Auto Deals | Elite Clients Portal - Strictly Confidential</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add Car Modal -->
+    <div class="modal" id="addCarModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Vehicle to Your Garage</h3>
+                <button class="close-modal" onclick="closeModal('addCarModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addCarForm">
+                    <div class="form-group">
+                        <label for="carBrand">Brand</label>
+                        <select id="carBrand" required>
+                            <option value="">Select Brand</option>
+                            <option value="bmw">BMW</option>
+                            <option value="mercedes">Mercedes-Benz</option>
+                            <option value="toyota">Toyota</option>
+                            <option value="porsche">Porsche</option>
+                            <option value="range-rover">Range Rover</option>
+                            <option value="ford">Ford</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="carModel">Model</label>
+                        <input type="text" id="carModel" placeholder="e.g., X5, S-Class, Land Cruiser" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carYear">Year</label>
+                        <input type="number" id="carYear" min="2000" max="2024" value="2023" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carColor">Color</label>
+                        <input type="text" id="carColor" placeholder="e.g., Black, White, Blue" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carPlate">License Plate</label>
+                        <input type="text" id="carPlate" placeholder="e.g., KAA 123A" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            ADD VEHICLE
+                        </button>
+                        <button type="button" class="btn-secondary" onclick="closeModal('addCarModal')">
+                            CANCEL
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Contact VIP Concierge</h3>
+                <button class="close-modal" onclick="closeModal('contactModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactSubject">Subject</label>
+                        <select id="contactSubject" required>
+                            <option value="">Select Subject</option>
+                            <option value="service">Service Request</option>
+                            <option value="booking">Event Booking</option>
+                            <option value="purchase">Vehicle Purchase</option>
+                            <option value="support">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Message</label>
+                        <textarea id="contactMessage" rows="5" placeholder="Describe your request..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPhone">Contact Number</label>
+                        <input type="tel" id="contactPhone" placeholder="+254 7XX XXX XXX" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            SEND REQUEST
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+// Load elite clients data
+document.addEventListener('DOMContentLoaded', function() {
+    const eliteClients = JSON.parse(localStorage.getItem('frankEliteClients')) || [];
+    
+    // Populate the "My Cars" section with actual data
+    const carsGrid = document.getElementById('carsGrid');
+    
+    if (eliteClients.length > 0) {
+        carsGrid.innerHTML = '';
+        eliteClients.forEach(client => {
+            const carCard = document.createElement('div');
+            carCard.className = 'car-card';
+            carCard.innerHTML = `
+                <div class="car-card-header">
+                    <div class="car-badge">VIP</div>
+                    <div class="car-status">SOLD</div>
+                </div>
+                <div class="car-card-image">
+                    <!-- You could add car images here -->
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="car-card-info">
+                    <h3>${client.carBrand} ${client.carModel}</h3>
+                    <p>Purchased: ${client.purchaseDate}</p>
+                    <p>Amount: KSh ${parseInt(client.amount).toLocaleString()}</p>
+                </div>
+            `;
+            carsGrid.appendChild(carCard);
+        });
+    }
+});
+</script>
+
+
+    <!-- Scripts -->
+    <script src="js/elite-clients.js"></script>
+    <script>
+    // Simple preloader hide
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => preloader.style.display = 'none', 500);
+            }
+            
+            // Animate stats
+            animateCounter('clientYears', 5);
+            animateCounter('carsOwned', 3);
+            animateCounter('servicesUsed', 12);
+        }, 1500);
+    });
+    
+    function animateCounter(elementId, target) {
+        const element = document.getElementById(elementId);
+        if (!element) return;
+        
+        let current = 0;
+        const increment = target / 100;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(current);
+        }, 20);
+    }
+    
+    function showAddCarModal() {
+        document.getElementById('addCarModal').style.display = 'flex';
+    }
+    
+    function showContactModal() {
+        document.getElementById('contactModal').style.display = 'flex';
+    }
+    
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+    
+    function bookService(service) {
+        alert(`Booking ${service} service...\nOur concierge will contact you shortly.`);
+    }
+    
+    function rsvpEvent(event) {
+        alert(`RSVP sent for ${event}!\nWe'll send you confirmation details.`);
+    }
+    </script>
+</body>
+</html>

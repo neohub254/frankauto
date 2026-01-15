@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Challenge | Frank Auto Deals</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="cosmic-luxury.css">
+    <link rel="stylesheet" href="sound-challange.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+    /* Preloader */
+    .sound-preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0A0A14;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+    
+    .sound-loading {
+        text-align: center;
+    }
+    
+    .sound-icon {
+        font-size: 60px;
+        color: #00F3FF;
+        margin-bottom: 20px;
+        animation: pulse 1.5s infinite;
+    }
+    </style>
+</head>
+<body class="sound-challenge-page">
+    <!-- Preloader -->
+    <div class="sound-preloader" id="preloader">
+        <div class="sound-loading">
+            <div class="sound-icon">🔊</div>
+            <div class="loading-text">Loading Sound Challenge...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="challenge-nav">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <div class="challenge-badge">🎧</div>
+                <div class="logo-text">
+                    <span>SOUND</span>
+                    <span>CHALLENGE</span>
+                </div>
+            </div>
+
+            <div class="challenge-menu">
+                <a href="#game" class="challenge-link active">
+                    <i class="fas fa-gamepad"></i>
+                    <span>PLAY</span>
+                </a>
+                <a href="#leaderboard" class="challenge-link">
+                    <i class="fas fa-trophy"></i>
+                    <span>LEADERBOARD</span>
+                </a>
+                <a href="#instructions" class="challenge-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>HOW TO PLAY</span>
+                </a>
+                <a href="admin-dashboard.html" class="challenge-link admin-link">
+                    <i class="fas fa-user-shield"></i>
+                    <span>ADMIN</span>
+                </a>
+            </div>
+
+            <div class="challenge-stats">
+                <div class="stat">
+                    <i class="fas fa-volume-up"></i>
+                    <span id="totalSounds">15</span>
+                    <small>Sounds</small>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-crown"></i>
+                    <span id="topScore">0</span>
+                    <small>Top Score</small>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Game -->
+    <main class="challenge-main">
+        <!-- Game Screen -->
+        <section id="game" class="game-section active">
+            <div class="container">
+                <!-- Start Screen -->
+                <div class="start-screen" id="startScreen">
+                    <div class="start-content">
+                        <div class="game-logo">
+                            <i class="fas fa-volume-up"></i>
+                            <h1>ENGINE SOUND CHALLENGE</h1>
+                        </div>
+                        
+                        <p class="game-tagline">Can you identify the car by its engine sound?</p>
+                        
+                        <div class="difficulty-selector">
+                            <h3>Select Difficulty:</h3>
+                            <div class="difficulty-buttons">
+                                <button class="difficulty-btn active" data-difficulty="easy">
+                                    <i class="fas fa-car"></i>
+                                    <span>EASY</span>
+                                    <small>4-cylinder & V6</small>
+                                </button>
+                                <button class="difficulty-btn" data-difficulty="medium">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>MEDIUM</span>
+                                    <small>V8 Engines</small>
+                                </button>
+                                <button class="difficulty-btn" data-difficulty="hard">
+                                    <i class="fas fa-fire"></i>
+                                    <span>HARD</span>
+                                    <small>Supercars & Exotics</small>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="category-selector">
+                            <h3>Select Category:</h3>
+                            <div class="category-buttons">
+                                <button class="category-btn active" data-category="all">
+                                    <i class="fas fa-globe"></i>
+                                    <span>ALL CARS</span>
+                                </button>
+                                <button class="category-btn" data-category="german">
+                                    <i class="fas fa-flag"></i>
+                                    <span>GERMAN</span>
+                                </button>
+                                <button class="category-btn" data-category="japanese">
+                                    <i class="fas fa-flag"></i>
+                                    <span>JAPANESE</span>
+                                </button>
+                                <button class="category-btn" data-category="american">
+                                    <i class="fas fa-flag"></i>
+                                    <span>AMERICAN</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="game-settings">
+                            <div class="setting">
+                                <label>
+                                    <input type="checkbox" id="enableHints" checked>
+                                    Enable Hints
+                                </label>
+                            </div>
+                            <div class="setting">
+                                <label>
+                                    <input type="checkbox" id="enableTimer" checked>
+                                    Enable Timer (60s)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-start" id="startGame">
+                            <i class="fas fa-play"></i>
+                            START CHALLENGE
+                        </button>
+                        
+                        <div class="quick-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-question-circle"></i>
+                                <span>10 Questions</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-clock"></i>
+                                <span>60 Seconds</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star"></i>
+                                <span>100 Points Max</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Screen -->
+                <div class="game-screen" id="gameScreen" style="display: none;">
+                    <div class="game-header">
+                        <div class="game-info">
+                            <div class="round-info">
+                                <span class="label">ROUND</span>
+                                <span id="currentRound" class="value">1</span>
+                                <span class="separator">/</span>
+                                <span id="totalRounds" class="value">10</span>
+                            </div>
+                            
+                            <div class="score-info">
+                                <span class="label">SCORE</span>
+                                <span id="currentScore" class="value">0</span>
+                            </div>
+                            
+                            <div class="time-info">
+                                <span class="label">TIME</span>
+                                <span id="timer" class="value">60</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="sound-player">
+                            <div class="player-header">
+                                <h3>Listen to the Engine Sound:</h3>
+                                <div class="player-controls">
+                                    <button class="btn-play" id="playSound">
+                                        <i class="fas fa-play"></i>
+                                        PLAY SOUND
+                                    </button>
+                                    <button class="btn-hint" id="showHint">
+                                        <i class="fas fa-lightbulb"></i>
+                                        HINT (-5)
+                                    </button>
+                                    <button class="btn-skip" id="skipQuestion">
+                                        <i class="fas fa-forward"></i>
+                                        SKIP
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="sound-visualizer">
+                                <div class="visualizer-bars">
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="play-count">
+                                <i class="fas fa-headphones"></i>
+                                <span>You can play the sound up to 3 times</span>
+                                <div class="play-dots">
+                                    <div class="dot active"></div>
+                                    <div class="dot active"></div>
+                                    <div class="dot active"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="answer-section">
+                            <h3>Which car makes this sound?</h3>
+                            <div class="answer-grid">
+                                <button class="answer-btn" data-answer="1">
+                                    <span class="option">A</span>
+                                    <span class="car-name" id="answer1">Toyota Land Cruiser</span>
+                                    <span class="car-brand" id="brand1">Toyota</span>
+                                </button>
+                                
+                                <button class="answer-btn" data-answer="2">
+                                    <span class="option">B</span>
+                                    <span class="car-name" id="answer2">BMW X5</span>
+                                    <span class="car-brand" id="brand2">BMW</span>
+                                </button>
+                                
+                                <button class="answer-btn" data-answer="3">
+                                    <span class="option">C</span>
+                                    <span class="car-name" id="answer3">Ford Mustang GT</span>
+                                    <span class="car-brand" id="brand3">Ford</span>
+                                </button>
+                                
+                                <button class="answer-btn" data-answer="4">
+                                    <span class="option">D</span>
+                                    <span class="car-name" id="answer4">Mercedes-AMG C63</span>
+                                    <span class="car-brand" id="brand4">Mercedes</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="hint-section" id="hintSection" style="display: none;">
+                            <div class="hint-content">
+                                <h4><i class="fas fa-lightbulb"></i> Hint</h4>
+                                <p id="hintText">This car is known for its reliability and is popular in Africa...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-feedback" id="gameFeedback"></div>
+                </div>
+                
+                <!-- Results Screen -->
+                <div class="results-screen" id="resultsScreen" style="display: none;">
+                    <div class="results-content">
+                        <div class="results-header">
+                            <div class="results-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h2>CHALLENGE COMPLETE!</h2>
+                            <p class="results-subtitle">Your Performance Summary</p>
+                        </div>
+                        
+                        <div class="results-stats" id="gameResults">
+                            <div class="stat-card">
+                                <div class="stat-value" id="finalScore">0</div>
+                                <div class="stat-label">FINAL SCORE</div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-value" id="correctAnswers">0</div>
+                                <div class="stat-label">CORRECT</div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-value" id="accuracy">0%</div>
+                                <div class="stat-label">ACCURACY</div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-value" id="timeTaken">0s</div>
+                                <div class="stat-label">TIME</div>
+                            </div>
+                        </div>
+                        
+                        <div class="results-breakdown">
+                            <h3>Question Breakdown</h3>
+                            <div class="breakdown-list" id="resultsDetails">
+                                <!-- Will be populated by JS -->
+                            </div>
+                        </div>
+                        
+                        <div class="results-actions">
+                            <button class="btn-play-again" id="playAgain">
+                                <i class="fas fa-redo"></i>
+                                PLAY AGAIN
+                            </button>
+                            <button class="btn-leaderboard" onclick="showSection('leaderboard')">
+                                <i class="fas fa-trophy"></i>
+                                VIEW LEADERBOARD
+                            </button>
+                            <button class="btn-share" onclick="shareResults()">
+                                <i class="fas fa-share"></i>
+                                SHARE SCORE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Leaderboard -->
+        <section id="leaderboard" class="leaderboard-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-trophy"></i> LEADERBOARD</h2>
+                    <p>Top players of the Sound Challenge</p>
+                </div>
+                
+                <div class="leaderboard-filters">
+                    <button class="filter-btn active" data-filter="all">ALL TIME</button>
+                    <button class="filter-btn" data-filter="week">THIS WEEK</button>
+                    <button class="filter-btn" data-filter="today">TODAY</button>
+                    <button class="filter-btn" data-filter="hard">HARD MODE</button>
+                </div>
+                
+                <div class="leaderboard-container">
+                    <div class="leaderboard-header">
+                        <div class="header-rank">RANK</div>
+                        <div class="header-player">PLAYER</div>
+                        <div class="header-score">SCORE</div>
+                        <div class="header-difficulty">MODE</div>
+                        <div class="header-date">DATE</div>
+                    </div>
+                    
+                    <div class="leaderboard-entries" id="leaderboardEntries">
+                        <!-- Leaderboard will be populated by JS -->
+                        <div class="loading-leaderboard">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Loading leaderboard...
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="personal-best">
+                    <h3>Your Personal Best</h3>
+                    <div class="personal-stats">
+                        <div class="personal-stat">
+                            <div class="stat-label">Highest Score</div>
+                            <div class="stat-value" id="personalHighScore">0</div>
+                        </div>
+                        <div class="personal-stat">
+                            <div class="stat-label">Games Played</div>
+                            <div class="stat-value" id="gamesPlayed">0</div>
+                        </div>
+                        <div class="personal-stat">
+                            <div class="stat-label">Average Score</div>
+                            <div class="stat-value" id="averageScore">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Instructions -->
+        <section id="instructions" class="instructions-section">
+            <div class="container">
+                <h2><i class="fas fa-info-circle"></i> HOW TO PLAY</h2>
+                
+                <div class="instructions-grid">
+                    <div class="instruction-card">
+                        <div class="instruction-icon">
+                            <i class="fas fa-volume-up"></i>
+                        </div>
+                        <h3>1. Listen to the Sound</h3>
+                        <p>Click the play button to listen to an engine sound. You can play it up to 3 times.</p>
+                    </div>
+                    
+                    <div class="instruction-card">
+                        <div class="instruction-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>2. Identify the Car</h3>
+                        <p>Choose the correct car model from the 4 options provided.</p>
+                    </div>
+                    
+                    <div class="instruction-card">
+                        <div class="instruction-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>3. Use Hints Wisely</h3>
+                        <p>Need help? Use hints, but they'll deduct 5 points from your score.</p>
+                    </div>
+                    
+                    <div class="instruction-card">
+                        <div class="instruction-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>4. Beat the Clock</h3>
+                        <p>You have 60 seconds to answer all 10 questions. Answer quickly for bonus points!</p>
+                    </div>
+                </div>
+                
+                <div class="scoring-guide">
+                    <h3>Scoring System</h3>
+                    <table class="scoring-table">
+                        <tr>
+                            <td>Correct Answer</td>
+                            <td>+10 points</td>
+                        </tr>
+                        <tr>
+                            <td>Correct on First Try</td>
+                            <td>+5 bonus points</td>
+                        </tr>
+                        <tr>
+                            <td>Time Bonus (per second left)</td>
+                            <td>+2 points</td>
+                        </tr>
+                        <tr>
+                            <td>Using a Hint</td>
+                            <td>-5 points</td>
+                        </tr>
+                        <tr>
+                            <td>Hard Mode Multiplier</td>
+                            <td>×2 points</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Audio Player (hidden) -->
+    <audio id="gameAudio" preload="auto"></audio>
+
+    <!-- Scripts -->
+    <script src="franksound-challenge.js"></script>
+    <script>
+    // Simple preloader hide
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => preloader.style.display = 'none', 500);
+            }
+        }, 1000);
+        
+        // Initialize game
+        if (typeof SoundChallenge !== 'undefined') {
+            const game = new SoundChallenge();
+            window.game = game;
+        }
+    });
+    
+    // Navigation
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.challenge-main > section').forEach(section => {
+            section.classList.remove('active');
+        });
+        
+        // Show selected section
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.classList.add('active');
+        }
+        
+        // Update nav links
+        document.querySelectorAll('.challenge-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        const activeLink = document.querySelector(`.challenge-link[href="#${sectionId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+    }
+    
+    // Add click event to nav links
+    document.querySelectorAll('.challenge-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('href').substring(1);
+            showSection(target);
+        });
+    });
+    
+    // Share results function
+    function shareResults() {
+        const score = document.getElementById('finalScore').textContent;
+        const text = `I scored ${score} points on Frank Auto Deals Sound Challenge! Can you beat my score?`;
+        
+        if (navigator.share) {
+            navigator.share({
+                title: 'Frank Auto Deals Sound Challenge',
+                text: text,
+                url: window.location.href
+            });
+        } else {
+            // Fallback: Copy to clipboard
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Score copied to clipboard! Share it with your friends.');
+            });
+        }
+    }
+    </script>
+</body>
+</html>

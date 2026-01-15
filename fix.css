@@ -1,0 +1,71 @@
+/* CSS FIXES */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Force preloader to hide after load */
+body.loaded .preloader {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Basic styles to make sure content is visible */
+.main-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.9);
+    z-index: 1000;
+    padding: 20px;
+}
+
+.hero-section {
+    padding-top: 100px;
+    min-height: 100vh;
+    background: #111;
+}
+
+/* Ensure content is visible */
+.featured-section,
+.symphony-preview,
+.challenge-section,
+.brands-section {
+    padding: 80px 20px;
+    background: #0a0a0a;
+}
+
+/* Simple car cards */
+.car-card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.car-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Make sure footer is visible */
+.main-footer {
+    background: #111;
+    padding: 40px 20px;
+    color: white;
+}
