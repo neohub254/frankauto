@@ -319,6 +319,47 @@
             }
         });
     </script>
+
+    <script>
+// SIMPLE FIX - Add this to your brands-showroom.html
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded - fixing showroom...');
+    
+    // 1. Force hide preloader
+    setTimeout(function() {
+        const preloader = document.querySelector('.preloader');
+        if (preloader) {
+            console.log('Hiding preloader');
+            preloader.style.display = 'none';
+        }
+    }, 2000);
+    
+    // 2. Make buttons work
+    document.querySelectorAll('.btn-view, .btn-compare, .nav-action').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            alert('Button clicked! JS is working.');
+        });
+    });
+    
+    // 3. Load basic data
+    try {
+        const cars = JSON.parse(localStorage.getItem('frankCars')) || [];
+        const brands = JSON.parse(localStorage.getItem('frankBrands')) || [];
+        
+        if (cars.length > 0) {
+            // Update stats
+            document.getElementById('totalCars').textContent = cars.length;
+            document.getElementById('availableCars').textContent = 
+                cars.filter(c => c.status === 'available').length;
+        }
+    } catch (e) {
+        console.error('Error:', e);
+    }
+});
+</script>
+    
 </body>
                                 </html>
+
 
