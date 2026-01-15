@@ -1282,3 +1282,5 @@ viewBrand(brandId) {
 // ===== UPDATE INIT FUNCTION =====
 // In your init() function, add this line:
 // this.setupAnchorLinks();
+// Add this anywhere in your existing brands-showroom.js
+setTimeout(() => document.querySelector('.preloader')?.style.display = 'none', 2000);
