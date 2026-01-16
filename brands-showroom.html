@@ -1,365 +1,449 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="luxury-theme">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brands Showroom | Frank Auto Deals</title>
+    <title>Frank Auto Deals | Premium Automotive Showroom</title>
+    <meta name="description" content="Experience luxury automotive excellence at Frank Auto Deals. Browse premium brands including BMW, Mercedes-Benz, Porsche, and more.">
+    <meta name="keywords" content="luxury cars, premium automobiles, car dealership, BMW, Mercedes, Porsche, Audi, Lexus, Frank Auto Deals">
+    <meta name="author" content="Frank Auto Deals">
     
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="brands-showroom.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Lightbox for gallery -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="brands-showroom.css">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
-    
-    <style>
-        /* Quick inline for loading */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0a12;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .preloader-content {
-            text-align: center;
-        }
-        
-        .preloader-logo {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .hidden {
-            display: none !important;
-        }
-    </style>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body class="brands-showroom">
-    
+<body>
+    <!-- Animated Background Elements -->
+    <div class="bg-animations">
+        <div class="light-particle" style="--x: 10%; --y: 20%; --delay: 0s;"></div>
+        <div class="light-particle" style="--x: 80%; --y: 40%; --delay: 1s;"></div>
+        <div class="light-particle" style="--x: 30%; --y: 70%; --delay: 2s;"></div>
+        <div class="light-particle" style="--x: 60%; --y: 10%; --delay: 3s;"></div>
+        <div class="light-particle" style="--x: 90%; --y: 60%; --delay: 4s;"></div>
+        
+        <div class="glowing-line line-1"></div>
+        <div class="glowing-line line-2"></div>
+        <div class="glowing-line line-3"></div>
+        
+        <div class="holographic-shape shape-1"></div>
+        <div class="holographic-shape shape-2"></div>
+        <div class="holographic-shape shape-3"></div>
+        
+        <div class="energy-grid"></div>
+        <div class="floating-element float-1">
+            <i class="fas fa-car"></i>
+        </div>
+        <div class="floating-element float-2">
+            <i class="fas fa-cogs"></i>
+        </div>
+        <div class="floating-element float-3">
+            <i class="fas fa-tachometer-alt"></i>
+        </div>
+    </div>
 
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="nav-logo" onclick="showroom.goHome()">
-                <div class="logo-icon">🏎️</div>
+    <!-- Luxury Header -->
+    <header class="luxury-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-glow">
+                    <div class="logo-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                </div>
                 <div class="logo-text">
-                    <span class="logo-main">FRANK AUTO</span>
-                    <span class="logo-sub">LUXURY SHOWROOM</span>
+                    <h1 class="brand-name">Frank Auto Deals</h1>
+                    <p class="tagline">Where Luxury Meets Excellence</p>
                 </div>
             </div>
 
-            <!-- Center Controls -->
-            <div class="nav-center">
-                <!-- View Toggle -->
-                <div class="view-toggle">
-                    <button class="view-btn active" data-view="brands">
-                        <i class="fas fa-flag"></i> Brands
-                    </button>
-                    <button class="view-btn" data-view="all-cars">
-                        <i class="fas fa-car"></i> All Cars
-                    </button>
+            <nav class="main-nav">
+                <div class="nav-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-car"></i>
+                        <span id="totalCars">0</span>
+                        <span class="stat-label">Total Cars</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="availableCars">0</span>
+                        <span class="stat-label">Available</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-flag"></i>
+                        <span id="totalBrands">0</span>
+                        <span class="stat-label">Brands</span>
+                    </div>
                 </div>
                 
-                <!-- Search -->
-                <div class="nav-search">
-                    <input type="text" id="globalSearch" placeholder="Search brands or models...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-
-            <!-- Right Actions -->
-            <div class="nav-actions">
-                <button class="nav-action" onclick="showroom.toggleCompare()">
-                    <i class="fas fa-balance-scale"></i>
-                    <span class="badge" id="compareCount">0</span>
-                </button>
-                <button class="nav-action whatsapp-btn" onclick="showroom.contactWhatsApp()">
-                    <i class="fab fa-whatsapp"></i> Contact
-                </button>
-                <button class="nav-action admin-btn" onclick="window.open('admin-login.html', '_blank')">
-                    <i class="fas fa-lock"></i> Admin
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Container -->
-    <main class="main-container">
-        <!-- Brands View -->
-        <section class="brands-section active" id="brandsView">
-            <!-- Hero -->
-            <div class="hero-banner">
-                <div class="hero-content">
-                    <h1 class="hero-title">LUXURY BRANDS SHOWROOM</h1>
-                    <p class="hero-subtitle">Explore premium vehicles from world-class manufacturers</p>
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <div class="stat-number" id="totalBrands">12</div>
-                            <div class="stat-label">Premium Brands</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="stat-number" id="totalCars">0</div>
-                            <div class="stat-label">Vehicles Available</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="stat-number" id="availableCars">0</div>
-                            <div class="stat-label">Ready for Delivery</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="stat-number" id="totalValue">0</div>
-                            <div class="stat-label">Total Value</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Category Filter -->
-            <div class="category-filter">
-                <div class="container">
-                    <div class="filter-tabs">
-                        <button class="filter-tab active" data-category="all">ALL BRANDS</button>
-                        <button class="filter-tab" data-category="luxury">LUXURY</button>
-                        <button class="filter-tab" data-category="premium">PREMIUM</button>
-                        <button class="filter-tab" data-category="suv">SUVS</button>
-                        <button class="filter-tab" data-category="german">GERMAN</button>
-                        <button class="filter-tab" data-category="japanese">JAPANESE</button>
-                        <button class="filter-tab" data-category="sports">SPORTS</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Brands Grid -->
-            <div class="container">
-                <div class="brands-grid" id="brandsGrid">
-                    <!-- Dynamic brands will be loaded here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Brand Cars View (for anchor links) -->
-        <section class="brand-detail-section hidden" id="brandDetailView">
-            <div class="container">
-                <!-- Brand Header -->
-                <div class="brand-header" id="brandHeader">
-                    <!-- Dynamic brand header -->
-                </div>
-
-                <!-- Cars Grid -->
-                <div class="brand-cars-grid" id="brandCarsGrid">
-                    <!-- Dynamic cars will be loaded here -->
-                </div>
-
-                <!-- Back Button -->
-                <div class="back-container">
-                    <button class="back-btn" onclick="showroom.showBrandsView()">
-                        <i class="fas fa-arrow-left"></i> Back to All Brands
+                <div class="nav-actions">
+                    <button class="nav-btn refresh-btn" id="refreshData" title="Refresh Data">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button class="nav-btn admin-btn" onclick="window.open('admin-login.html', '_blank')">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Admin</span>
+                    </button>
+                    <button class="nav-btn whatsapp-btn" id="whatsappContact">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat</span>
                     </button>
                 </div>
-            </div>
-        </section>
-
-        <!-- All Cars View -->
-        <section class="all-cars-section hidden" id="allCarsView">
-            <div class="container">
-                <div class="section-header">
-                    <h2>All Available Vehicles</h2>
-                    <div class="view-controls">
-                        <select id="sortCars">
-                            <option value="newest">Newest First</option>
-                            <option value="price_low">Price: Low to High</option>
-                            <option value="price_high">Price: High to Low</option>
-                            <option value="year">Year</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="all-cars-grid" id="allCarsGrid">
-                    <!-- All cars will be loaded here -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Compare Panel -->
-    <div class="compare-panel hidden" id="comparePanel">
-        <div class="compare-header">
-            <h3><i class="fas fa-balance-scale"></i> Compare Brands</h3>
-            <button class="close-btn" onclick="showroom.toggleCompare()">&times;</button>
+            </nav>
         </div>
-        
-        <div class="compare-content" id="compareContent">
-            <div class="compare-empty">
-                <i class="fas fa-balance-scale"></i>
-                <p>Select brands to compare</p>
-            </div>
-        </div>
-        
-        <div class="compare-actions">
-            <button class="btn-clear" onclick="showroom.clearCompare()">Clear All</button>
-            <button class="btn-compare" onclick="showroom.showComparison()">Compare Now</button>
-        </div>
-    </div>
+    </header>
 
-    <!-- Car Detail Modal -->
-    <div class="car-modal hidden" id="carModal">
-        <div class="car-modal-content">
-            <button class="modal-close" onclick="showroom.closeCarModal()">&times;</button>
-            <div class="car-modal-body" id="carModalBody">
-                <!-- Dynamic car details -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <div class="logo">🏎️</div>
-                        <div class="footer-logo-text">
-                            <span>FRANK AUTO DEALS</span>
-                            <span>LUXURY SHOWROOM</span>
-                        </div>
-                    </div>
-                    <p class="footer-desc">
-                        Premium vehicle showcase connected directly to admin inventory.
-                        Real cars, real prices, real availability.
-                    </p>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2 class="hero-title">Elevate Your Drive</h2>
+                <p class="hero-subtitle">Discover the world's finest automobiles, curated for the discerning enthusiast</p>
                 
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-                    <a href="javascript:void(0)" onclick="showroom.showBrandsView()">
-                        <i class="fas fa-flag"></i> All Brands
-                    </a>
-                    <a href="sound-challenge.html"><i class="fas fa-volume-up"></i> Sound Challenge</a>
-                    <a href="admin-login.html" target="_blank"><i class="fas fa-lock"></i> Admin Panel</a>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <a href="tel:+254742436155"><i class="fas fa-phone"></i> +254 742 436 155</a>
-                    <a href="https://wa.me/254742436155" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WhatsApp Chat
-                    </a>
-                    <a href="mailto:info@frankautodeals.co.ke">
-                        <i class="fas fa-envelope"></i> Email Us
-                    </a>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Showroom Info</h4>
-                    <div class="info-item">
-                        <span class="info-label">Last Updated:</span>
-                        <span class="info-value" id="lastUpdated">Just now</span>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="stat-number" id="heroTotalCars">0</div>
+                        <div class="stat-label">Premium Vehicles</div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">Data Source:</span>
-                        <span class="info-value">Admin Dashboard</span>
+                    <div class="hero-stat">
+                        <div class="stat-number" id="heroTotalBrands">0</div>
+                        <div class="stat-label">Luxury Brands</div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">Version:</span>
-                        <span class="info-value">Showroom v3.0</span>
+                    <div class="hero-stat">
+                        <div class="stat-number" id="heroTotalValue">KSh 0M</div>
+                        <div class="stat-label">Collection Value</div>
                     </div>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2024 Frank Auto Deals. All rights reserved.</p>
-                <p class="tech-note">Connected to real-time admin inventory • Powered by localStorage API</p>
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <div class="scroll-line"></div>
+                    <div class="scroll-text">Explore Brands</div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Brands Filter Section -->
+    <section class="brands-filter-section">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="title-text">Select Your Luxury</span>
+                <span class="title-glow"></span>
+            </h2>
+            <p class="section-subtitle">Browse through our curated collection of premium automotive brands</p>
+        </div>
+
+        <!-- Brand Filter Buttons -->
+        <div class="filter-container">
+            <div class="filter-scroll">
+                <div class="filter-buttons" id="brandFilters">
+                    <button class="filter-btn active" data-brand="all">
+                        <div class="filter-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <span>All Brands</span>
+                    </button>
+                    
+                    <!-- BMW -->
+                    <button class="filter-btn brand-bmw" data-brand="bmw">
+                        <div class="filter-icon">
+                            <img src="bmwlogo.jpg" alt="BMW" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>BMW</span>
+                    </button>
+                    
+                    <!-- Mercedes -->
+                    <button class="filter-btn brand-mercedes" data-brand="mercedes">
+                        <div class="filter-icon">
+                            <img src="mercedezlogo.jpg" alt="Mercedes" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Mercedes</span>
+                    </button>
+                    
+                    <!-- Porsche -->
+                    <button class="filter-btn brand-porsche" data-brand="porsche">
+                        <div class="filter-icon">
+                            <img src="porschelogo.jpg" alt="Porsche" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Porsche</span>
+                    </button>
+                    
+                    <!-- Audi -->
+                    <button class="filter-btn brand-audi" data-brand="audi">
+                        <div class="filter-icon">
+                            <img src="audilogo.jpg" alt="Audi" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Audi</span>
+                    </button>
+                    
+                    <!-- Lexus -->
+                    <button class="filter-btn brand-lexus" data-brand="lexus">
+                        <div class="filter-icon">
+                            <img src="lexuslogo.jpg" alt="Lexus" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Lexus</span>
+                    </button>
+                    
+                    <!-- Toyota -->
+                    <button class="filter-btn brand-toyota" data-brand="toyota">
+                        <div class="filter-icon">
+                            <img src="toyotalogo.jpg" alt="Toyota" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Toyota</span>
+                    </button>
+                    
+                    <!-- Range Rover -->
+                    <button class="filter-btn brand-range-rover" data-brand="range-rover">
+                        <div class="filter-icon">
+                            <img src="range-roverlogo.jpg" alt="Range Rover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Range Rover</span>
+                    </button>
+                    
+                    <!-- Ford -->
+                    <button class="filter-btn brand-ford" data-brand="ford">
+                        <div class="filter-icon">
+                            <img src="fordlogo.jpg" alt="Ford" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Ford</span>
+                    </button>
+                    
+                    <!-- Nissan -->
+                    <button class="filter-btn brand-nissan" data-brand="nissan">
+                        <div class="filter-icon">
+                            <img src="nissanlogo.jpg" alt="Nissan" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Nissan</span>
+                    </button>
+                    
+                    <!-- Mitsubishi -->
+                    <button class="filter-btn brand-mitsubishi" data-brand="mitsubishi">
+                        <div class="filter-icon">
+                            <img src="mitsubishilogo.jpg" alt="Mitsubishi" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Mitsubishi</span>
+                    </button>
+                    
+                    <!-- Subaru -->
+                    <button class="filter-btn brand-subaru" data-brand="subaru">
+                        <div class="filter-icon">
+                            <img src="subarulogo.jpg" alt="Subaru" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Subaru</span>
+                    </button>
+                    
+                    <!-- Jeep -->
+                    <button class="filter-btn brand-jeep" data-brand="jeep">
+                        <div class="filter-icon">
+                            <img src="jeeplogo.jpg" alt="Jeep" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
+                        </div>
+                        <span>Jeep</span>
+                    </button>
+                    
+                    <!-- Other Brands -->
+                    <button class="filter-btn brand-other" data-brand="other">
+                        <div class="filter-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <span>Other Brands</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="filter-controls">
+                <button class="filter-nav prev-filter">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="filter-nav next-filter">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="globalSearch" placeholder="Search cars, models, or features...">
+                <button class="search-clear" id="clearSearch">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Grid Section -->
+    <section class="brands-grid-section">
+        <div class="grid-controls">
+            <div class="view-options">
+                <button class="view-btn active" data-view="grid">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" data-view="list">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+            
+            <div class="sort-options">
+                <select id="sortBrands">
+                    <option value="name">Sort by Name</option>
+                    <option value="cars">Most Cars</option>
+                    <option value="price">Highest Price</option>
+                    <option value="newest">Newest Added</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Brands Grid Container -->
+        <div class="brands-grid" id="brandsGrid">
+            <!-- Brands will be dynamically loaded here from JavaScript -->
+        </div>
+        
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-icon">
+                <i class="fas fa-car"></i>
+            </div>
+            <h3>No Cars Available</h3>
+            <p>Add cars from the Admin Dashboard to see them displayed here.</p>
+            <button class="btn-admin" onclick="window.open('admin-login.html', '_blank')">
+                <i class="fas fa-user-shield"></i> Go to Admin Dashboard
+            </button>
+        </div>
+        
+        <!-- Loading State -->
+        <div class="loading-state" id="loadingState">
+            <div class="loading-spinner"></div>
+            <p>Loading luxury collection...</p>
+        </div>
+    </section>
+
+    <!-- Fixed WhatsApp Button -->
+    <a href="https://wa.me/254742436155?text=Hello%20Frank%20Auto%20Deals%2C%20I'm%20interested%20in%20your%20vehicles" 
+       class="whatsapp-fixed" target="_blank" id="fixedWhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-text">Chat with us</div>
+    </a>
+
+    <!-- Car Details Modal -->
+    <div class="modal-overlay" id="carModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title">Car Details</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content" id="carModalContent">
+                <!-- Car details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Gallery Modal -->
+    <div class="modal-overlay" id="galleryModal">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <button class="gallery-close" id="closeGallery">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="gallery-nav">
+                    <button class="gallery-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="gallery-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="gallery-content">
+                <div class="swiper gallerySwiper">
+                    <div class="swiper-wrapper" id="gallerySwiperWrapper">
+                        <!-- Images will be loaded here -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="notification-toast" id="notificationToast">
+        <div class="toast-content">
+            <i class="toast-icon" id="toastIcon"></i>
+            <div class="toast-text">
+                <p id="toastMessage"></p>
+            </div>
+        </div>
+        <div class="toast-progress"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-car"></i>
+                    <h3>Frank Auto Deals</h3>
+                </div>
+                <p class="footer-tagline">Premium Automotive Excellence Since 2023</p>
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone"></i> +254 742 436 155</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp Available 24/7</p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showroom.filterByBrand('all')">All Brands</a></li>
+                    <li><a href="#" onclick="showroom.filterByBrand('bmw')">BMW Collection</a></li>
+                    <li><a href="#" onclick="showroom.filterByBrand('mercedes')">Mercedes Collection</a></li>
+                    <li><a href="#" onclick="showroom.filterByBrand('porsche')">Porsche Collection</a></li>
+                    <li><a href="admin-login.html" target="_blank">Admin Login</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Business Hours</h4>
+                <div class="business-hours">
+                    <p>Monday - Friday: 8:00 AM - 7:00 PM</p>
+                    <p>Saturday: 9:00 AM - 6:00 PM</p>
+                    <p>Sunday: 10:00 AM - 4:00 PM</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon"><i class="fab Fa-instagram"></i></a>
+                    <a href="https://wa.me/254742436155" class="social-icon whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Frank Auto Deals. All rights reserved.</p>
+            <p class="footer-updated">Last Updated: <span id="lastUpdated">Just now</span></p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="brands-showroom.js"></script>
-    
-    <script>
-        // Initialize lightbox
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true,
-            'albumLabel': "Image %1 of %2"
-        });
-        
-        // Handle anchor links like #bmw, #toyota
-        window.addEventListener('load', function() {
-            const hash = window.location.hash.substring(1); // Remove #
-            if (hash) {
-                // Check if it's a brand ID
-                const showroom = window.showroom;
-                if (showroom && typeof showroom.viewBrand === 'function') {
-                    setTimeout(() => {
-                        showroom.viewBrand(hash);
-                    }, 1000);
-                }
-            }
-        });
-    </script>
-
-    <script>
-// SIMPLE FIX - Add this to your brands-showroom.html
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded - fixing showroom...');
-    
-    // 1. Force hide preloader
-    setTimeout(function() {
-        const preloader = document.querySelector('.preloader');
-        if (preloader) {
-            console.log('Hiding preloader');
-            preloader.style.display = 'none';
-        }
-    }, 2000);
-    
-    // 2. Make buttons work
-    document.querySelectorAll('.btn-view, .btn-compare, .nav-action').forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.stopPropagation();
-            alert('Button clicked! JS is working.');
-        });
-    });
-    
-    // 3. Load basic data
-    try {
-        const cars = JSON.parse(localStorage.getItem('frankCars')) || [];
-        const brands = JSON.parse(localStorage.getItem('frankBrands')) || [];
-        
-        if (cars.length > 0) {
-            // Update stats
-            document.getElementById('totalCars').textContent = cars.length;
-            document.getElementById('availableCars').textContent = 
-                cars.filter(c => c.status === 'available').length;
-        }
-    } catch (e) {
-        console.error('Error:', e);
-    }
-});
-</script>
-    
 </body>
-                                </html>
-
-
+    </html>
