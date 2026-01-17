@@ -3,651 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Clients | Frank Auto Deals</title>
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="cosmic-luxury.css">
+    <title>Elite Clients | Luxury Auto Gallery</title>
     <link rel="stylesheet" href="elite-clients.css">
-    
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-    /* Critical styles */
-    body {
-        background: #0A0A14;
-        color: white;
-        font-family: 'Exo 2', sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .elite-preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #0A0A14;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-    }
-    
-    .vip-spinner {
-        text-align: center;
-    }
-    
-    .vip-icon {
-        font-size: 60px;
-        color: #FFD700;
-        margin-bottom: 20px;
-    }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body class="elite-clients">
-    <!-- Preloader -->
-    <div class="elite-preloader" id="preloader">
-        <div class="preloader-content">
-            <div class="vip-spinner">
-                <div class="vip-icon">👑</div>
-                <div class="loading-text">Loading Elite Portal...</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- VIP Navigation -->
-    <nav class="vip-nav">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <div class="vip-badge">VIP</div>
-                <div class="logo-text">
-                    <span>ELITE</span>
-                    <span>CLIENTS</span>
-                </div>
-            </div>
-
-            <div class="vip-menu">
-                <a href="#portal" class="vip-link active">
-                    <i class="fas fa-home"></i>
-                    <span>PORTAL</span>
-                </a>
-                <a href="#benefits" class="vip-link">
-                    <i class="fas fa-crown"></i>
-                    <span>BENEFITS</span>
-                </a>
-                <a href="#cars" class="vip-link">
-                    <i class="fas fa-car"></i>
-                    <span>MY CARS</span>
-                </a>
-                <a href="#services" class="vip-link">
-                    <i class="fas fa-concierge-bell"></i>
-                    <span>SERVICES</span>
-                </a>
-                <a href="#events" class="vip-link">
-                    <i class="fas fa-calendar-star"></i>
-                    <span>EVENTS</span>
-                </a>
-            </div>
-
-            <div class="vip-profile">
-                <div class="profile-avatar">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <div class="profile-info">
-                    <div class="profile-name">VIP Client</div>
-                    <div class="profile-tier">DIAMOND TIER</div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- VIP Welcome -->
-    <section class="vip-welcome" id="portal">
+<body>
+    <!-- Animated Background -->
+    <div class="elite-bg"></div>
+    
+    <!-- Header -->
+    <header class="elite-header">
         <div class="container">
-            <div class="welcome-content">
-                <div class="welcome-badge">
+            <div class="elite-logo">
+                <div class="elite-logo-icon">
                     <i class="fas fa-crown"></i>
-                    <span>EXCLUSIVE ACCESS</span>
                 </div>
-                
-                <h1 class="welcome-title">
-                    <span class="title-line">WELCOME TO THE</span>
-                    <span class="title-line highlight">ELITE CLUB</span>
-                </h1>
-                
-                <p class="welcome-message">
-                    As a valued Frank Auto Deals client, you have access to exclusive benefits, 
-                    premium services, and priority treatment. Your automotive journey deserves 
-                    the extraordinary.
+                <div>
+                    <h1>ELITE <span class="gradient-text">CLIENTS</span></h1>
+                    <p class="elite-subtitle">Our Distinguished Automotive Family</p>
+                </div>
+            </div>
+            <nav class="elite-nav">
+                <a href="index.html" class="elite-nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="brands-showroom.html" class="elite-nav-link"><i class="fas fa-car"></i> Showroom</a>
+                <a href="#testimonials" class="elite-nav-link"><i class="fas fa-star"></i> Testimonials</a>
+            </nav>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="stat-value" id="totalSold">0</span>
+                    <span class="stat-label">Cars Sold</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="elite-hero">
+        <div class="container">
+            <div class="elite-hero-content">
+                <h2 class="elite-hero-title">
+                    <span>JOIN OUR</span>
+                    <span class="gradient-text">ELITE CIRCLE</span>
+                    <span>OF SATISFIED CLIENTS</span>
+                </h2>
+                <p class="elite-hero-description">
+                    Discover why discerning automotive enthusiasts choose Luxury Auto Gallery for their premium vehicle needs.
+                    Our commitment to excellence has earned us a reputation as the premier destination for luxury automobiles.
                 </p>
-                
-                <div class="welcome-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="stat-content">
-                            <div class="stat-number" id="clientYears">0</div>
-                            <div class="stat-label">YEARS WITH US</div>
-                        </div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-car"></i>
-                        </div>
-                        <div class="stat-content">
-                            <div class="stat-number" id="carsOwned">0</div>
-                            <div class="stat-label">CARS PURCHASED</div>
-                        </div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <div class="stat-content">
-                            <div class="stat-number" id="servicesUsed">0</div>
-                            <div class="stat-label">SERVICES USED</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="welcome-visual">
-                <div class="vip-card">
-                    <div class="card-shine"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="card-logo">FAD</div>
-                            <div class="card-type">ELITE MEMBERSHIP</div>
-                        </div>
-                        <div class="card-details">
-                            <div class="card-number">•••• •••• •••• 8888</div>
-                            <div class="card-info">
-                                <div class="card-name">VIP CLIENT</div>
-                                <div class="card-expiry">VALID THRU 12/29</div>
-                            </div>
-                        </div>
-                        <div class="card-tier">
-                            <i class="fas fa-gem"></i>
-                            <span>DIAMOND TIER</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIP Benefits -->
-    <section class="vip-benefits" id="benefits">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-bg">EXCLUSIVE</span>
-                <span class="title-main">VIP BENEFITS</span>
-            </h2>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 class="benefit-title">24/7 Concierge</h3>
-                    <p class="benefit-desc">
-                        Dedicated personal assistant for all your automotive needs, 
-                        available round the clock.
-                    </p>
-                    <div class="benefit-tag">PRIORITY SERVICE</div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
+                <div class="elite-badges">
+                    <div class="badge">
                         <i class="fas fa-shield-alt"></i>
+                        <span>Verified Quality</span>
                     </div>
-                    <h3 class="benefit-title">Extended Warranty</h3>
-                    <p class="benefit-desc">
-                        5-year comprehensive warranty on all vehicles with premium 
-                        coverage options.
-                    </p>
-                    <div class="benefit-tag">PEACE OF MIND</div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-truck-pickup"></i>
+                    <div class="badge">
+                        <i class="fas fa-award"></i>
+                        <span>Award Winning</span>
                     </div>
-                    <h3 class="benefit-title">Free Delivery</h3>
-                    <p class="benefit-desc">
-                        Nationwide vehicle delivery and pickup for service appointments 
-                        at no extra cost.
-                    </p>
-                    <div class="benefit-tag">CONVENIENCE</div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-percentage"></i>
+                    <div class="badge">
+                        <i class="fas fa-handshake"></i>
+                        <span>Trusted Service</span>
                     </div>
-                    <h3 class="benefit-title">Special Financing</h3>
-                    <p class="benefit-desc">
-                        Exclusive low-interest rates and flexible payment plans 
-                        tailored for VIP clients.
-                    </p>
-                    <div class="benefit-tag">FINANCIAL PRIVILEGE</div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-calendar-star"></i>
-                    </div>
-                    <h3 class="benefit-title">VIP Events</h3>
-                    <p class="benefit-desc">
-                        Invitations to exclusive launches, test drive events, 
-                        and luxury automotive experiences.
-                    </p>
-                    <div class="benefit-tag">EXCLUSIVE ACCESS</div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <h3 class="benefit-title">Loyalty Rewards</h3>
-                    <p class="benefit-desc">
-                        Earn points with every purchase redeemable for upgrades, 
-                        accessories, and premium services.
-                    </p>
-                    <div class="benefit-tag">REWARDS PROGRAM</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- My Cars Section -->
-    <section class="my-cars-section" id="cars">
+    <!-- Stats Overview -->
+    <section class="elite-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card elite">
+                    <div class="stat-icon">
+                        <i class="fas fa-users-crown"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-value" id="eliteClientsCount">150+</h3>
+                        <p class="stat-label">Elite Clients</p>
+                    </div>
+                </div>
+                <div class="stat-card revenue">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-value" id="totalRevenue">$25M+</h3>
+                        <p class="stat-label">Total Revenue</p>
+                    </div>
+                </div>
+                <div class="stat-card satisfaction">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-value" id="satisfactionRate">98%</h3>
+                        <p class="stat-label">Satisfaction Rate</p>
+                    </div>
+                </div>
+                <div class="stat-card repeat">
+                    <div class="stat-icon">
+                        <i class="fas fa-redo"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-value" id="repeatRate">65%</h3>
+                        <p class="stat-label">Repeat Clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sold Cars Gallery -->
+    <section class="sold-cars-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">MY GARAGE</h2>
-                <p class="section-subtitle">Your current and past vehicles with Frank Auto Deals</p>
-                <button class="btn-add-car" onclick="showAddCarModal()">
-                    <i class="fas fa-plus"></i>
-                    ADD NEW CAR
-                </button>
+                <h2><i class="fas fa-gem"></i> Previously Owned Masterpieces</h2>
+                <p class="section-subtitle">A curated collection of premium vehicles that found their perfect homes</p>
             </div>
             
-            <div class="cars-grid" id="carsGrid">
-                <!-- Cars will be loaded dynamically -->
-                <div class="no-cars">
-                    <i class="fas fa-car"></i>
-                    <h3>No cars in your garage yet</h3>
-                    <p>Add your first vehicle to get started</p>
-                    <button class="btn-primary" onclick="showAddCarModal()">
-                        ADD YOUR FIRST CAR
-                    </button>
+            <div class="sold-cars-filters">
+                <div class="filter-group">
+                    <label for="filterBrand"><i class="fas fa-flag"></i> Filter by Brand</label>
+                    <select id="filterBrand">
+                        <option value="all">All Brands</option>
+                        <option value="bmw">BMW</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="porsche">Porsche</option>
+                        <option value="range-rover">Range Rover</option>
+                        <option value="toyota">Toyota</option>
+                        <option value="lexus">Lexus</option>
+                        <option value="audi">Audi</option>
+                        <option value="other">Other Brands</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterYear"><i class="fas fa-calendar"></i> Filter by Year</label>
+                    <select id="filterYear">
+                        <option value="all">All Years</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sortBy"><i class="fas fa-sort"></i> Sort By</label>
+                    <select id="sortBy">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="price-low">Price: Low to High</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sold-cars-grid" id="soldCarsGrid">
+                <!-- Sold cars will be loaded here -->
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No cars found</h3>
+                <p>Try adjusting your filters to see more results</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-comment-dots"></i> Client Testimonials</h2>
+                <p class="section-subtitle">What our elite clients say about their experience</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="client-info">
+                            <h4>James Kariuki</h4>
+                            <p class="client-role">CEO, Tech Innovations Ltd.</p>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Exceptional service! The team at Luxury Auto Gallery helped me find the perfect Range Rover Sport. Their attention to detail and professional approach made the entire process seamless."</p>
+                    </div>
+                    <div class="testimonial-footer">
+                        <span class="car-purchased">Purchased: Range Rover Sport 2023</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="client-info">
+                            <h4>Sarah Mwangi</h4>
+                            <p class="client-role">Medical Doctor</p>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"As a first-time luxury car buyer, I was nervous. But the team guided me through every step. My Mercedes C-Class is perfect, and the after-sales service is outstanding!"</p>
+                    </div>
+                    <div class="testimonial-footer">
+                        <span class="car-purchased">Purchased: Mercedes C-Class 2023</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="client-info">
+                            <h4>Robert Omondi</h4>
+                            <p class="client-role">Business Entrepreneur</p>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"I've purchased three vehicles from Luxury Auto Gallery. Each experience has been flawless. Their commitment to quality and customer satisfaction is unmatched in the industry."</p>
+                    </div>
+                    <div class="testimonial-footer">
+                        <span class="car-purchased">Purchased: BMW X5, Porsche 911, Toyota Land Cruiser</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- VIP Services -->
-    <section class="vip-services" id="services">
+    <!-- Client Stories -->
+    <section class="client-stories">
         <div class="container">
-            <h2 class="section-title">PREMIUM SERVICES</h2>
-            
-            <div class="services-tabs">
-                <button class="service-tab active" data-service="maintenance">MAINTENANCE</button>
-                <button class="service-tab" data-service="detailing">DETAILING</button>
-                <button class="service-tab" data-service="upgrades">UPGRADES</button>
-                <button class="service-tab" data-service="insurance">INSURANCE</button>
-                <button class="service-tab" data-service="finance">FINANCE</button>
+            <div class="section-header">
+                <h2><i class="fas fa-book-open"></i> Client Success Stories</h2>
+                <p class="section-subtitle">Real stories from our valued clients</p>
             </div>
-            
-            <div class="services-content">
-                <div class="service-info active" id="maintenance">
-                    <h3>Premium Maintenance</h3>
-                    <p>Comprehensive service packages with genuine parts and expert technicians.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Free pickup & delivery</li>
-                        <li><i class="fas fa-check"></i> Loan car during service</li>
-                        <li><i class="fas fa-check"></i> 24-month warranty on repairs</li>
-                        <li><i class="fas fa-check"></i> Priority scheduling</li>
-                    </ul>
-                    <button class="btn-service" onclick="bookService('maintenance')">
-                        <i class="fas fa-calendar-check"></i>
-                        BOOK SERVICE
-                    </button>
-                </div>
-                
-                <div class="service-info" id="detailing">
-                    <h3>Executive Detailing</h3>
-                    <p>Professional cleaning and protection services for your luxury vehicle.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Ceramic coating application</li>
-                        <li><i class="fas fa-check"></i> Interior deep cleaning</li>
-                        <li><i class="fas fa-check"></i> Paint correction</li>
-                        <li><i class="fas fa-check"></i> Leather conditioning</li>
-                    </ul>
-                    <button class="btn-service" onclick="bookService('detailing')">
-                        <i class="fas fa-calendar-check"></i>
-                        BOOK DETAILING
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- VIP Events -->
-    <section class="vip-events" id="events">
-        <div class="container">
-            <h2 class="section-title">EXCLUSIVE EVENTS</h2>
-            
-            <div class="events-slider">
-                <div class="event-card">
-                    <div class="event-date">
-                        <div class="date-day">15</div>
-                        <div class="date-month">DEC</div>
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title">Luxury Car Launch</h3>
-                        <p class="event-desc">
-                            Exclusive preview of the latest luxury models before public release.
-                        </p>
-                        <div class="event-details">
-                            <span><i class="fas fa-map-marker-alt"></i> Nairobi Showroom</span>
-                            <span><i class="fas fa-clock"></i> 6:00 PM</span>
+            <div class="stories-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2024</div>
+                    <div class="timeline-content">
+                        <h4>Corporate Fleet Acquisition</h4>
+                        <p>A multinational corporation trusted us to supply their executive fleet with 15 luxury vehicles, including BMW 7 Series and Mercedes S-Class models.</p>
+                        <div class="timeline-stats">
+                            <span class="stat">15 Vehicles</span>
+                            <span class="stat">$2.5M Value</span>
+                            <span class="stat">Corporate Client</span>
                         </div>
-                        <button class="btn-rsvp" onclick="rsvpEvent('luxury-launch')">
-                            <i class="fas fa-check-circle"></i>
-                            RSVP
-                        </button>
                     </div>
                 </div>
-                
-                <div class="event-card">
-                    <div class="event-date">
-                        <div class="date-day">22</div>
-                        <div class="date-month">DEC</div>
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title">VIP Test Drive Day</h3>
-                        <p class="event-desc">
-                            Private test drive event featuring our latest sports and luxury vehicles.
-                        </p>
-                        <div class="event-details">
-                            <span><i class="fas fa-map-marker-alt"></i> Private Track</span>
-                            <span><i class="fas fa-clock"></i> 9:00 AM - 5:00 PM</span>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2024</div>
+                    <div class="timeline-content">
+                        <h4>Luxury SUV Collection</h4>
+                        <p>A family acquired their dream collection of premium SUVs, including a Range Rover Autobiography, Lexus LX600, and Mercedes G-Wagon.</p>
+                        <div class="timeline-stats">
+                            <span class="stat">3 Premium SUVs</span>
+                            <span class="stat">$450K Value</span>
+                            <span class="stat">Family Collection</span>
                         </div>
-                        <button class="btn-rsvp" onclick="rsvpEvent('test-drive-day')">
-                            <i class="fas fa-check-circle"></i>
-                            RSVP
-                        </button>
                     </div>
                 </div>
-                
-                <div class="event-card">
-                    <div class="event-date">
-                        <div class="date-day">05</div>
-                        <div class="date-month">JAN</div>
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title">New Year Celebration</h3>
-                        <p class="event-desc">
-                            Annual VIP client appreciation event with fine dining and entertainment.
-                        </p>
-                        <div class="event-details">
-                            <span><i class="fas fa-map-marker-alt"></i> Luxury Resort</span>
-                            <span><i class="fas fa-clock"></i> 7:00 PM</span>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2024</div>
+                    <div class="timeline-content">
+                        <h4>Supercar Enthusiast</h4>
+                        <p>A passionate car collector found their dream Porsche 911 GT3 RS through our exclusive network, complete with full customization options.</p>
+                        <div class="timeline-stats">
+                            <span class="stat">1 Supercar</span>
+                            <span class="stat">$350K Value</span>
+                            <span class="stat">Custom Build</span>
                         </div>
-                        <button class="btn-rsvp" onclick="rsvpEvent('new-year-celebration')">
-                            <i class="fas fa-check-circle"></i>
-                            RSVP
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- VIP Support -->
-    <section class="vip-support">
+    <!-- Become Elite Section -->
+    <section class="become-elite">
         <div class="container">
-            <div class="support-card">
-                <div class="support-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <div class="support-content">
-                    <h3>Need Immediate Assistance?</h3>
-                    <p>Your personal concierge is available 24/7 for any questions or requests.</p>
-                    <div class="support-contacts">
-                        <a href="tel:+254742436155" class="contact-btn">
-                            <i class="fas fa-phone"></i>
-                            CALL CONCIERGE
-                        </a>
-                        <a href="https://wa.me/254742436155" class="contact-btn whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                            WHATSAPP
-                        </a>
-                        <button class="contact-btn" onclick="showContactModal()">
-                            <i class="fas fa-envelope"></i>
-                            EMAIL REQUEST
-                        </button>
+            <div class="become-elite-content">
+                <h2>Become Part of Our Elite Family</h2>
+                <p>Experience the Luxury Auto Gallery difference. Join our exclusive circle of satisfied clients and enjoy premium service, priority access, and exceptional value.</p>
+                <div class="elite-benefits">
+                    <div class="benefit">
+                        <i class="fas fa-clock"></i>
+                        <h4>Priority Access</h4>
+                        <p>Be the first to view new arrivals</p>
                     </div>
+                    <div class="benefit">
+                        <i class="fas fa-percent"></i>
+                        <h4>Exclusive Offers</h4>
+                        <p>Special pricing for elite clients</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h4>Premium Service</h4>
+                        <p>Dedicated account manager</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Extended Warranty</h4>
+                        <p>Comprehensive protection plans</p>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="brands-showroom.html" class="cta-btn primary">
+                        <i class="fas fa-car"></i> Browse Showroom
+                    </a>
+                    <a href="https://wa.me/254742436155" target="_blank" class="cta-btn secondary">
+                        <i class="fab fa-whatsapp"></i> Contact Sales
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="vip-footer">
+    <footer class="elite-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Elite Clients Portal</h4>
-                    <p>Exclusive benefits and services for our valued VIP clients.</p>
+                <div class="footer-logo">
+                    <i class="fas fa-crown"></i>
+                    <h3>LUXURY AUTO GALLERY</h3>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Access</h4>
-                    <a href="#portal"><i class="fas fa-home"></i> Portal</a>
-                    <a href="#benefits"><i class="fas fa-crown"></i> Benefits</a>
-                    <a href="#cars"><i class="fas fa-car"></i> My Cars</a>
-                    <a href="#events"><i class="fas fa-calendar"></i> Events</a>
+                <p class="footer-tagline">Where Automotive Dreams Become Reality</p>
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone"></i> +254 742 436 155</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +254 742 436 155</p>
+                    <p><i class="fas fa-envelope"></i> elite@luxuryautogallery.com</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Emergency Contact</h4>
-                    <a href="tel:+254742436155"><i class="fas fa-phone"></i> +254 742 436 155</a>
-                    <a href="mailto:vip@frankautodeals.co.ke"><i class="fas fa-envelope"></i> VIP Email</a>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Frank Auto Deals | Elite Clients Portal - Strictly Confidential</p>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Luxury Auto Gallery. All rights reserved.</p>
+                    <p>Elite Clients Portal v2.0</p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Add Car Modal -->
-    <div class="modal" id="addCarModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Add Vehicle to Your Garage</h3>
-                <button class="close-modal" onclick="closeModal('addCarModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="addCarForm">
-                    <div class="form-group">
-                        <label for="carBrand">Brand</label>
-                        <select id="carBrand" required>
-                            <option value="">Select Brand</option>
-                            <option value="bmw">BMW</option>
-                            <option value="mercedes">Mercedes-Benz</option>
-                            <option value="toyota">Toyota</option>
-                            <option value="porsche">Porsche</option>
-                            <option value="range-rover">Range Rover</option>
-                            <option value="ford">Ford</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="carModel">Model</label>
-                        <input type="text" id="carModel" placeholder="e.g., X5, S-Class, Land Cruiser" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="carYear">Year</label>
-                        <input type="number" id="carYear" min="2000" max="2024" value="2023" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="carColor">Color</label>
-                        <input type="text" id="carColor" placeholder="e.g., Black, White, Blue" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="carPlate">License Plate</label>
-                        <input type="text" id="carPlate" placeholder="e.g., KAA 123A" required>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn-primary">
-                            <i class="fas fa-plus"></i>
-                            ADD VEHICLE
-                        </button>
-                        <button type="button" class="btn-secondary" onclick="closeModal('addCarModal')">
-                            CANCEL
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Modal -->
-    <div class="modal" id="contactModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Contact VIP Concierge</h3>
-                <button class="close-modal" onclick="closeModal('contactModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="contactSubject">Subject</label>
-                        <select id="contactSubject" required>
-                            <option value="">Select Subject</option>
-                            <option value="service">Service Request</option>
-                            <option value="booking">Event Booking</option>
-                            <option value="purchase">Vehicle Purchase</option>
-                            <option value="support">Technical Support</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="contactMessage">Message</label>
-                        <textarea id="contactMessage" rows="5" placeholder="Describe your request..." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="contactPhone">Contact Number</label>
-                        <input type="tel" id="contactPhone" placeholder="+254 7XX XXX XXX" required>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            SEND REQUEST
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-    <script>
-// Load elite clients data
-document.addEventListener('DOMContentLoaded', function() {
-    const eliteClients = JSON.parse(localStorage.getItem('frankEliteClients')) || [];
-    
-    // Populate the "My Cars" section with actual data
-    const carsGrid = document.getElementById('carsGrid');
-    
-    if (eliteClients.length > 0) {
-        carsGrid.innerHTML = '';
-        eliteClients.forEach(client => {
-            const carCard = document.createElement('div');
-            carCard.className = 'car-card';
-            carCard.innerHTML = `
-                <div class="car-card-header">
-                    <div class="car-badge">VIP</div>
-                    <div class="car-status">SOLD</div>
-                </div>
-                <div class="car-card-image">
-                    <!-- You could add car images here -->
-                    <i class="fas fa-car"></i>
-                </div>
-                <div class="car-card-info">
-                    <h3>${client.carBrand} ${client.carModel}</h3>
-                    <p>Purchased: ${client.purchaseDate}</p>
-                    <p>Amount: KSh ${parseInt(client.amount).toLocaleString()}</p>
-                </div>
-            `;
-            carsGrid.appendChild(carCard);
-        });
-    }
-});
-</script>
-
-
     <!-- Scripts -->
     <script src="elite-clients.js"></script>
-    <script>
-    // Simple preloader hide
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                preloader.style.opacity = '0';
-                setTimeout(() => preloader.style.display = 'none', 500);
-            }
-            
-            // Animate stats
-            animateCounter('clientYears', 5);
-            animateCounter('carsOwned', 3);
-            animateCounter('servicesUsed', 12);
-        }, 1500);
-    });
-    
-    function animateCounter(elementId, target) {
-        const element = document.getElementById(elementId);
-        if (!element) return;
-        
-        let current = 0;
-        const increment = target / 100;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            element.textContent = Math.floor(current);
-        }, 20);
-    }
-    
-    function showAddCarModal() {
-        document.getElementById('addCarModal').style.display = 'flex';
-    }
-    
-    function showContactModal() {
-        document.getElementById('contactModal').style.display = 'flex';
-    }
-    
-    function closeModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-    }
-    
-    function bookService(service) {
-        alert(`Booking ${service} service...\nOur concierge will contact you shortly.`);
-    }
-    
-    function rsvpEvent(event) {
-        alert(`RSVP sent for ${event}!\nWe'll send you confirmation details.`);
-    }
-    </script>
 </body>
 </html>
-
