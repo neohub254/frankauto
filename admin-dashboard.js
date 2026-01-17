@@ -157,15 +157,31 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(update, 1000);
     }
 
-    function checkAdminSession() {
+   function checkAdminSession() {
+    // Add a small delay to ensure session is saved
+    setTimeout(() => {
         const session = localStorage.getItem('adminSession');
         const expiry = localStorage.getItem('sessionExpiry');
         
+        console.log('Session check:', { session, expiry, currentTime: Date.now() });
+        
         if (!session || !expiry || Date.now() > parseInt(expiry)) {
+            console.log('No valid session found, redirecting to login');
             window.location.href = 'admin-login.html';
+        } else {
+            console.log('Valid session found, access granted');
         }
-    }
+    }, 100);
+}
 
+    console.log('=== ADMIN DASHBOARD LOADING ===');
+console.log('Current localStorage:', {
+    adminSession: localStorage.getItem('adminSession'),
+    sessionExpiry: localStorage.getItem('sessionExpiry'),
+    loginAttempts: localStorage.getItem('loginAttempts')
+});
+console.log('Current time:', Date.now());
+console.log('===============================');
     function loadDashboardData() {
         // Simulate API call
         // FIREBASE INTEGRATION MARKER - Load cars data from Firebase
@@ -797,3 +813,4 @@ document.addEventListener('DOMContentLoaded', function() {
         showNotification('Car marked as sold! It will now appear in Elite Clients.', 'success');
     };
 });
+
