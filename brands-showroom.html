@@ -1,449 +1,491 @@
 <!DOCTYPE html>
-<html lang="en" class="luxury-theme">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frank Auto Deals | Premium Automotive Showroom</title>
-    <meta name="description" content="Experience luxury automotive excellence at Frank Auto Deals. Browse premium brands including BMW, Mercedes-Benz, Porsche, and more.">
-    <meta name="keywords" content="luxury cars, premium automobiles, car dealership, BMW, Mercedes, Porsche, Audi, Lexus, Frank Auto Deals">
-    <meta name="author" content="Frank Auto Deals">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    
-    <!-- CSS -->
+    <title>Luxury Auto Gallery | Brands Showroom</title>
     <link rel="stylesheet" href="brands-showroom.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Animated Background Elements -->
-    <div class="bg-animations">
-        <div class="light-particle" style="--x: 10%; --y: 20%; --delay: 0s;"></div>
-        <div class="light-particle" style="--x: 80%; --y: 40%; --delay: 1s;"></div>
-        <div class="light-particle" style="--x: 30%; --y: 70%; --delay: 2s;"></div>
-        <div class="light-particle" style="--x: 60%; --y: 10%; --delay: 3s;"></div>
-        <div class="light-particle" style="--x: 90%; --y: 60%; --delay: 4s;"></div>
-        
-        <div class="glowing-line line-1"></div>
-        <div class="glowing-line line-2"></div>
-        <div class="glowing-line line-3"></div>
-        
-        <div class="holographic-shape shape-1"></div>
-        <div class="holographic-shape shape-2"></div>
-        <div class="holographic-shape shape-3"></div>
-        
-        <div class="energy-grid"></div>
-        <div class="floating-element float-1">
-            <i class="fas fa-car"></i>
-        </div>
-        <div class="floating-element float-2">
-            <i class="fas fa-cogs"></i>
-        </div>
-        <div class="floating-element float-3">
-            <i class="fas fa-tachometer-alt"></i>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Moving LED Strip -->
+    <div class="led-marquee">
+        <div class="led-marquee-content">
+            <span>✨ PREMIUM LUXURY CARS ✨</span>
+            <span>🚀 EXCLUSIVE COLLECTION 🚀</span>
+            <span>⭐ ELITE AUTOMOTIVE GALLERY ⭐</span>
+            <span>💎 LIMITED EDITION MODELS 💎</span>
+            <span>✨ PREMIUM LUXURY CARS ✨</span>
+            <span>🚀 EXCLUSIVE COLLECTION 🚀</span>
+            <span>⭐ ELITE AUTOMOTIVE GALLERY ⭐</span>
+            <span>💎 LIMITED EDITION MODELS 💎</span>
         </div>
     </div>
 
-    <!-- Luxury Header -->
-    <header class="luxury-header">
-        <div class="header-container">
-            <div class="logo-section">
-                <div class="logo-glow">
-                    <div class="logo-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-header">
+                <div class="logo-icon">
+                    <i class="fas fa-crown"></i>
                 </div>
-                <div class="logo-text">
-                    <h1 class="brand-name">Frank Auto Deals</h1>
-                    <p class="tagline">Where Luxury Meets Excellence</p>
-                </div>
+                <h1>LUXURY AUTO <span class="gradient-text">GALLERY</span></h1>
             </div>
-
+            
             <nav class="main-nav">
-                <div class="nav-stats">
-                    <div class="stat-item">
-                        <i class="fas fa-car"></i>
-                        <span id="totalCars">0</span>
-                        <span class="stat-label">Total Cars</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span id="availableCars">0</span>
-                        <span class="stat-label">Available</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-flag"></i>
-                        <span id="totalBrands">0</span>
-                        <span class="stat-label">Brands</span>
-                    </div>
-                </div>
-                
-                <div class="nav-actions">
-                    <button class="nav-btn refresh-btn" id="refreshData" title="Refresh Data">
-                        <i class="fas fa-sync-alt"></i>
-                    </button>
-                    <button class="nav-btn admin-btn" onclick="window.open('admin-login.html', '_blank')">
-                        <i class="fas fa-user-shield"></i>
-                        <span>Admin</span>
-                    </button>
-                    <button class="nav-btn whatsapp-btn" id="whatsappContact">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>Chat</span>
-                    </button>
-                </div>
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="#brands" class="nav-link active"><i class="fas fa-flag"></i> Brands</a>
+                <a href="#contact" class="nav-link"><i class="fas fa-phone"></i> Contact</a>
+                <a href="elite-clients.html" class="nav-link elite"><i class="fas fa-users-crown"></i> Elite Clients</a>
             </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="globalSearch" placeholder="Search cars...">
+                </div>
+                <button class="contact-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </button>
+            </div>
         </div>
     </header>
 
+    <!-- Brand Quick Select -->
+    <section class="brand-quick-select" id="brands">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-star"></i>
+                <span>SELECT YOUR DREAM BRAND</span>
+                <i class="fas fa-star"></i>
+            </h2>
+            <div class="quick-select-grid">
+                <div class="brand-pill" data-brand="all">All Brands</div>
+                <div class="brand-pill" data-brand="bmw">BMW</div>
+                <div class="brand-pill" data-brand="mercedes">Mercedes</div>
+                <div class="brand-pill" data-brand="porsche">Porsche</div>
+                <div class="brand-pill" data-brand="range-rover">Range Rover</div>
+                <div class="brand-pill" data-brand="audi">Audi</div>
+                <div class="brand-pill" data-brand="lexus">Lexus</div>
+                <div class="brand-pill" data-brand="toyota">Toyota</div>
+                <div class="brand-pill" data-brand="ford">Ford</div>
+                <div class="brand-pill" data-brand="nissan">Nissan</div>
+                <div class="brand-pill" data-brand="volvo">Volvo</div>
+                <div class="brand-pill" data-brand="mitsubishi">Mitsubishi</div>
+                <div class="brand-pill" data-brand="jeep">Jeep</div>
+                <div class="brand-pill" data-brand="lamborghini">Lamborghini</div>
+                <div class="brand-pill" data-brand="ferrari">Ferrari</div>
+                <div class="brand-pill" data-brand="other">Other Brands</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h2 class="hero-title">Elevate Your Drive</h2>
-                <p class="hero-subtitle">Discover the world's finest automobiles, curated for the discerning enthusiast</p>
-                
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">
+                    <span class="hero-line">EXPERIENCE</span>
+                    <span class="hero-line">THE PEAK OF</span>
+                    <span class="hero-line gradient-text">AUTOMOTIVE EXCELLENCE</span>
+                </h2>
+                <p class="hero-subtitle">Discover our curated collection of premium vehicles from the world's most prestigious manufacturers.</p>
                 <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="stat-number" id="heroTotalCars">0</div>
-                        <div class="stat-label">Premium Vehicles</div>
+                    <div class="stat">
+                        <span class="stat-value" id="totalCarsCount">150+</span>
+                        <span class="stat-label">Premium Cars</span>
                     </div>
-                    <div class="hero-stat">
-                        <div class="stat-number" id="heroTotalBrands">0</div>
-                        <div class="stat-label">Luxury Brands</div>
+                    <div class="stat">
+                        <span class="stat-value" id="availableCarsCount">120+</span>
+                        <span class="stat-label">Available Now</span>
                     </div>
-                    <div class="hero-stat">
-                        <div class="stat-number" id="heroTotalValue">KSh 0M</div>
-                        <div class="stat-label">Collection Value</div>
+                    <div class="stat">
+                        <span class="stat-value" id="brandsCount">15+</span>
+                        <span class="stat-label">Luxury Brands</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="hero-scroll">
-                <div class="scroll-indicator">
-                    <div class="scroll-line"></div>
-                    <div class="scroll-text">Explore Brands</div>
+            <div class="hero-visual">
+                <div class="rotating-car">
+                    <i class="fas fa-car"></i>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Brands Filter Section -->
-    <section class="brands-filter-section">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="title-text">Select Your Luxury</span>
-                <span class="title-glow"></span>
-            </h2>
-            <p class="section-subtitle">Browse through our curated collection of premium automotive brands</p>
-        </div>
-
-        <!-- Brand Filter Buttons -->
-        <div class="filter-container">
-            <div class="filter-scroll">
-                <div class="filter-buttons" id="brandFilters">
-                    <button class="filter-btn active" data-brand="all">
-                        <div class="filter-icon">
-                            <i class="fas fa-globe"></i>
+    <!-- Brands Showroom -->
+    <main class="brands-showroom">
+        <div class="container">
+            <!-- BMW Section -->
+            <section class="brand-section" id="bmw">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="bmwlogo.jpg" alt="BMW" class="brand-logo-img">
                         </div>
-                        <span>All Brands</span>
-                    </button>
-                    
-                    <!-- BMW -->
-                    <button class="filter-btn brand-bmw" data-brand="bmw">
-                        <div class="filter-icon">
-                            <img src="bmwlogo.jpg" alt="BMW" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>BMW</span>
-                    </button>
-                    
-                    <!-- Mercedes -->
-                    <button class="filter-btn brand-mercedes" data-brand="mercedes">
-                        <div class="filter-icon">
-                            <img src="mercedezlogo.jpg" alt="Mercedes" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Mercedes</span>
-                    </button>
-                    
-                    <!-- Porsche -->
-                    <button class="filter-btn brand-porsche" data-brand="porsche">
-                        <div class="filter-icon">
-                            <img src="porschelogo.jpg" alt="Porsche" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Porsche</span>
-                    </button>
-                    
-                    <!-- Audi -->
-                    <button class="filter-btn brand-audi" data-brand="audi">
-                        <div class="filter-icon">
-                            <img src="audilogo.jpg" alt="Audi" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Audi</span>
-                    </button>
-                    
-                    <!-- Lexus -->
-                    <button class="filter-btn brand-lexus" data-brand="lexus">
-                        <div class="filter-icon">
-                            <img src="lexuslogo.jpg" alt="Lexus" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Lexus</span>
-                    </button>
-                    
-                    <!-- Toyota -->
-                    <button class="filter-btn brand-toyota" data-brand="toyota">
-                        <div class="filter-icon">
-                            <img src="toyotalogo.jpg" alt="Toyota" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Toyota</span>
-                    </button>
-                    
-                    <!-- Range Rover -->
-                    <button class="filter-btn brand-range-rover" data-brand="range-rover">
-                        <div class="filter-icon">
-                            <img src="range-roverlogo.jpg" alt="Range Rover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Range Rover</span>
-                    </button>
-                    
-                    <!-- Ford -->
-                    <button class="filter-btn brand-ford" data-brand="ford">
-                        <div class="filter-icon">
-                            <img src="fordlogo.jpg" alt="Ford" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Ford</span>
-                    </button>
-                    
-                    <!-- Nissan -->
-                    <button class="filter-btn brand-nissan" data-brand="nissan">
-                        <div class="filter-icon">
-                            <img src="nissanlogo.jpg" alt="Nissan" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Nissan</span>
-                    </button>
-                    
-                    <!-- Mitsubishi -->
-                    <button class="filter-btn brand-mitsubishi" data-brand="mitsubishi">
-                        <div class="filter-icon">
-                            <img src="mitsubishilogo.jpg" alt="Mitsubishi" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Mitsubishi</span>
-                    </button>
-                    
-                    <!-- Subaru -->
-                    <button class="filter-btn brand-subaru" data-brand="subaru">
-                        <div class="filter-icon">
-                            <img src="subarulogo.jpg" alt="Subaru" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Subaru</span>
-                    </button>
-                    
-                    <!-- Jeep -->
-                    <button class="filter-btn brand-jeep" data-brand="jeep">
-                        <div class="filter-icon">
-                            <img src="jeeplogo.jpg" alt="Jeep" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-car\"></i>';">
-                        </div>
-                        <span>Jeep</span>
-                    </button>
-                    
-                    <!-- Other Brands -->
-                    <button class="filter-btn brand-other" data-brand="other">
-                        <div class="filter-icon">
-                            <i class="fas fa-plus-circle"></i>
-                        </div>
-                        <span>Other Brands</span>
-                    </button>
+                        <h3 class="brand-title">BMW <span class="brand-tag">German Engineering</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="bmwCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $45,000</span>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="filter-controls">
-                <button class="filter-nav prev-filter">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="filter-nav next-filter">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-        
-        <div class="search-container">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="globalSearch" placeholder="Search cars, models, or features...">
-                <button class="search-clear" id="clearSearch">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        </div>
-    </section>
+                <div class="cars-grid" id="bmwCars">
+                    <!-- BMW cars will be loaded here -->
+                </div>
+            </section>
 
-    <!-- Brands Grid Section -->
-    <section class="brands-grid-section">
-        <div class="grid-controls">
-            <div class="view-options">
-                <button class="view-btn active" data-view="grid">
-                    <i class="fas fa-th"></i>
-                </button>
-                <button class="view-btn" data-view="list">
-                    <i class="fas fa-list"></i>
-                </button>
-            </div>
-            
-            <div class="sort-options">
-                <select id="sortBrands">
-                    <option value="name">Sort by Name</option>
-                    <option value="cars">Most Cars</option>
-                    <option value="price">Highest Price</option>
-                    <option value="newest">Newest Added</option>
-                </select>
-            </div>
-        </div>
-        
-        <!-- Brands Grid Container -->
-        <div class="brands-grid" id="brandsGrid">
-            <!-- Brands will be dynamically loaded here from JavaScript -->
-        </div>
-        
-        <!-- Empty State -->
-        <div class="empty-state" id="emptyState" style="display: none;">
-            <div class="empty-icon">
-                <i class="fas fa-car"></i>
-            </div>
-            <h3>No Cars Available</h3>
-            <p>Add cars from the Admin Dashboard to see them displayed here.</p>
-            <button class="btn-admin" onclick="window.open('admin-login.html', '_blank')">
-                <i class="fas fa-user-shield"></i> Go to Admin Dashboard
-            </button>
-        </div>
-        
-        <!-- Loading State -->
-        <div class="loading-state" id="loadingState">
-            <div class="loading-spinner"></div>
-            <p>Loading luxury collection...</p>
-        </div>
-    </section>
+            <!-- Mercedes Section -->
+            <section class="brand-section" id="mercedes">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="mercedezlogo.jpg" alt="Mercedes" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Mercedes-Benz <span class="brand-tag">The Best or Nothing</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="mercedesCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $55,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="mercedesCars">
+                    <!-- Mercedes cars will be loaded here -->
+                </div>
+            </section>
 
-    <!-- Fixed WhatsApp Button -->
-    <a href="https://wa.me/254742436155?text=Hello%20Frank%20Auto%20Deals%2C%20I'm%20interested%20in%20your%20vehicles" 
-       class="whatsapp-fixed" target="_blank" id="fixedWhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <div class="whatsapp-text">Chat with us</div>
-    </a>
+            <!-- Porsche Section -->
+            <section class="brand-section" id="porsche">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="porschelogo.jpg" alt="Porsche" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Porsche <span class="brand-tag">Pure Performance</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="porscheCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $85,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="porscheCars">
+                    <!-- Porsche cars will be loaded here -->
+                </div>
+            </section>
 
-    <!-- Car Details Modal -->
-    <div class="modal-overlay" id="carModal">
-        <div class="modal-container">
+            <!-- Range Rover Section -->
+            <section class="brand-section" id="range-rover">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="range-roverlogo.jpg" alt="Range Rover" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Range Rover <span class="brand-tag">Above & Beyond</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="rangeCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $90,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="rangeCars">
+                    <!-- Range Rover cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Toyota Section -->
+            <section class="brand-section" id="toyota">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="toyotalogo.jpg" alt="Toyota" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Toyota <span class="brand-tag">Reliability Defined</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="toyotaCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $25,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="toyotaCars">
+                    <!-- Toyota cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Lexus Section -->
+            <section class="brand-section" id="lexus">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="lexuslogo.jpg" alt="Lexus" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Lexus <span class="brand-tag">Luxury & Innovation</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="lexusCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $40,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="lexusCars">
+                    <!-- Lexus cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Audi Section -->
+            <section class="brand-section" id="audi">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="audilogo.jpg" alt="Audi" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Audi <span class="brand-tag">Vorsprung durch Technik</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="audiCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $45,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="audiCars">
+                    <!-- Audi cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Ford Section -->
+            <section class="brand-section" id="ford">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="fordlogo.jpg" alt="Ford" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Ford <span class="brand-tag">Built Tough</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="fordCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $28,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="fordCars">
+                    <!-- Ford cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Nissan Section -->
+            <section class="brand-section" id="nissan">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="nissanlogo.jpg" alt="Nissan" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Nissan <span class="brand-tag">Innovation that Excites</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="nissanCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $22,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="nissanCars">
+                    <!-- Nissan cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Volvo Section -->
+            <section class="brand-section" id="volvo">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="volvo.jpg" alt="Volvo" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Volvo <span class="brand-tag">For Life</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="volvoCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $42,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="volvoCars">
+                    <!-- Volvo cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Jeep Section -->
+            <section class="brand-section" id="jeep">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="jeeplogo.jpg" alt="Jeep" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Jeep <span class="brand-tag">Go Anywhere</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="jeepCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $35,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="jeepCars">
+                    <!-- Jeep cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Mitsubishi Section -->
+            <section class="brand-section" id="mitsubishi">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="mitsubishilogo.jpg" alt="Mitsubishi" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Mitsubishi <span class="brand-tag">Drive your Ambition</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="mitsubishiCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $20,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="mitsubishiCars">
+                    <!-- Mitsubishi cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Lamborghini Section -->
+            <section class="brand-section" id="lamborghini">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="lamborghinilogo.jpg" alt="Lamborghini" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Lamborghini <span class="brand-tag">Extreme Performance</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="lamborghiniCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $250,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="lamborghiniCars">
+                    <!-- Lamborghini cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Ferrari Section -->
+            <section class="brand-section" id="ferrari">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <img src="ferrarilogo.jpg" alt="Ferrari" class="brand-logo-img">
+                        </div>
+                        <h3 class="brand-title">Ferrari <span class="brand-tag">Racing Heritage</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="ferrariCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> From $300,000</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="ferrariCars">
+                    <!-- Ferrari cars will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Other Brands Section -->
+            <section class="brand-section" id="other">
+                <div class="brand-header">
+                    <div class="brand-title-wrapper">
+                        <div class="brand-logo-icon">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                        <h3 class="brand-title">Other Premium Brands <span class="brand-tag">Exclusive Collection</span></h3>
+                    </div>
+                    <div class="brand-stats">
+                        <span class="brand-stat"><i class="fas fa-car"></i> <span id="otherCount">0</span> Models</span>
+                        <span class="brand-stat"><i class="fas fa-tag"></i> Various Prices</span>
+                    </div>
+                </div>
+                <div class="cars-grid" id="otherCars">
+                    <!-- Other brand cars will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" id="whatsappFloat">
+        <div class="whatsapp-tooltip">Chat with us on WhatsApp!</div>
+        <a href="https://wa.me/254742436155?text=Hello! I'm interested in your cars." target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Quick Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Car Details</h3>
-                <button class="modal-close" id="closeModal">
-                    <i class="fas fa-times"></i>
-                </button>
+                <h3><i class="fas fa-shopping-cart"></i> Quick Order</h3>
+                <button class="close-modal">&times;</button>
             </div>
-            <div class="modal-content" id="carModalContent">
-                <!-- Car details will be loaded here -->
+            <div class="modal-body" id="orderModalBody">
+                <!-- Order form will be loaded here -->
             </div>
         </div>
-    </div>
-
-    <!-- Image Gallery Modal -->
-    <div class="modal-overlay" id="galleryModal">
-        <div class="gallery-container">
-            <div class="gallery-header">
-                <button class="gallery-close" id="closeGallery">
-                    <i class="fas fa-times"></i>
-                </button>
-                <div class="gallery-nav">
-                    <button class="gallery-prev">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="gallery-next">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="gallery-content">
-                <div class="swiper gallerySwiper">
-                    <div class="swiper-wrapper" id="gallerySwiperWrapper">
-                        <!-- Images will be loaded here -->
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Notification Toast -->
-    <div class="notification-toast" id="notificationToast">
-        <div class="toast-content">
-            <i class="toast-icon" id="toastIcon"></i>
-            <div class="toast-text">
-                <p id="toastMessage"></p>
-            </div>
-        </div>
-        <div class="toast-progress"></div>
     </div>
 
     <!-- Footer -->
-    <footer class="luxury-footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <i class="fas fa-car"></i>
-                    <h3>Frank Auto Deals</h3>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-crown"></i>
+                        <h3>LUXURY AUTO GALLERY</h3>
+                    </div>
+                    <p class="footer-description">Premium automotive gallery offering exclusive luxury vehicles from the world's most prestigious brands.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <p class="footer-tagline">Premium Automotive Excellence Since 2023</p>
-                <div class="footer-contact">
-                    <p><i class="fas fa-phone"></i> +254 742 436 155</p>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp Available 24/7</p>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="#bmw" class="footer-link">BMW Collection</a>
+                    <a href="#mercedes" class="footer-link">Mercedes Collection</a>
+                    <a href="#porsche" class="footer-link">Porsche Collection</a>
+                    <a href="#range-rover" class="footer-link">Range Rover Collection</a>
+                    <a href="elite-clients.html" class="footer-link">Elite Clients</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +254 742 436 155</p>
+                        <p><i class="fas fa-envelope"></i> info@luxuryautogallery.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp: +254 742 436 155</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Business Hours</h4>
+                    <div class="business-hours">
+                        <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
+                        <p>Saturday: 10:00 AM - 6:00 PM</p>
+                        <p>Sunday: 11:00 AM - 5:00 PM</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="#" onclick="showroom.filterByBrand('all')">All Brands</a></li>
-                    <li><a href="#" onclick="showroom.filterByBrand('bmw')">BMW Collection</a></li>
-                    <li><a href="#" onclick="showroom.filterByBrand('mercedes')">Mercedes Collection</a></li>
-                    <li><a href="#" onclick="showroom.filterByBrand('porsche')">Porsche Collection</a></li>
-                    <li><a href="admin-login.html" target="_blank">Admin Login</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Luxury Auto Gallery. All rights reserved.</p>
+                <p>Designed with <i class="fas fa-heart"></i> for automotive enthusiasts</p>
             </div>
-            
-            <div class="footer-section">
-                <h4>Business Hours</h4>
-                <div class="business-hours">
-                    <p>Monday - Friday: 8:00 AM - 7:00 PM</p>
-                    <p>Saturday: 9:00 AM - 6:00 PM</p>
-                    <p>Sunday: 10:00 AM - 4:00 PM</p>
-                </div>
-                <div class="footer-social">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" class="social-icon"><i class="fab Fa-instagram"></i></a>
-                    <a href="https://wa.me/254742436155" class="social-icon whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Frank Auto Deals. All rights reserved.</p>
-            <p class="footer-updated">Last Updated: <span id="lastUpdated">Just now</span></p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="brands-showroom.js"></script>
 </body>
-    </html>
+</html>
